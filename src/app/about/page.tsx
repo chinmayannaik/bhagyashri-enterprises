@@ -12,7 +12,7 @@ import { business } from '@/lib/site';
 export const metadata = buildMetadata({
   title: 'About Us - Bhatkal Crane & Towing Experts',
   description:
-    'Bhagyashree Crane Service is a Bhatkal-based crane and towing company run by Kumar Naik. 10+ years lifting boats, machinery and recovering vehicles across the Uttara Kannada coast.',
+    'Bhagyashri Crane Service is a Bhatkal-based crane and towing company run by Kumar Naik. 10+ years lifting boats, machinery and recovering vehicles across the Uttara Kannada coast.',
   path: '/about',
   image: '/images/crane-monsoon-recovery.jpeg',
 });
@@ -39,9 +39,9 @@ export default function AboutPage() {
       <PageHero
         breadcrumbs={[{ name: 'Home', path: '/' }, { name: 'About', path: '/about' }]}
         title={<>The Team Behind Bhatkal&apos;s Cranes</>}
-        subtitle="Bhagyashree Crane Service has grown from a single tow truck into a trusted name for crane and towing work across the Uttara Kannada coast."
+        subtitle="Bhagyashri Crane Service has grown from a single tow truck into a trusted name for crane and towing work across the Uttara Kannada coast."
         image="/images/crane-monsoon-recovery.jpeg"
-        imageAlt="Bhagyashree crane and JCB recovering a boat during monsoon in Bhatkal"
+        imageAlt="Bhagyashri crane and JCB recovering a boat during monsoon in Bhatkal"
       />
 
       {/* Story */}
@@ -56,7 +56,7 @@ export default function AboutPage() {
             />
             <div className="mt-6 space-y-4 text-[15px] leading-relaxed text-brand-fog">
               <p>
-                Bhagyashree Crane Service began with a simple idea: when something heavy needs
+                Bhagyashri Crane Service began with a simple idea: when something heavy needs
                 lifting - or a vehicle breaks down on the highway - people in Bhatkal deserve help
                 that actually shows up, fast. Founded and run by{' '}
                 <span className="font-semibold text-brand-mist">{business.owner}</span>, the business
@@ -123,7 +123,7 @@ export default function AboutPage() {
             <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-lift">
               <Image
                 src="/images/towing-suv-ghat.jpeg"
-                alt="Bhagyashree towing an SUV on a ghat road near Bhatkal"
+                alt="Bhagyashri towing an SUV on a ghat road near Bhatkal"
                 width={1600}
                 height={900}
                 sizes="(max-width: 1024px) 100vw, 50vw"

@@ -5,8 +5,8 @@
 export const SITE_URL = 'https://bhagyashreecrane.com';
 
 export const business = {
-  name: 'Bhagyashree Crane Service',
-  legalName: 'Bhagyashree Crane & Towing Service',
+  name: 'Bhagyashri Crane Service',
+  legalName: 'Bhagyashri Crane & Towing Service',
   owner: 'Kumar Naik',
   tagline: '24×7 Crane & Towing Services in Bhatkal',
   subTagline: 'Fast Response • Licensed Operators • Affordable Pricing',
@@ -41,7 +41,7 @@ export const telHref = `tel:+91${business.phonePrimary}`;
 export const telHrefSecondary = `tel:+91${business.phoneSecondary}`;
 
 export const whatsappMessage =
-  'Hi Bhagyashree Crane Service, I need crane / towing assistance. Please share details.';
+  'Hi Bhagyashri Crane Service, I need crane / towing assistance. Please share details.';
 export const whatsappHref = `https://wa.me/${business.whatsapp}?text=${encodeURIComponent(
   whatsappMessage,
 )}`;

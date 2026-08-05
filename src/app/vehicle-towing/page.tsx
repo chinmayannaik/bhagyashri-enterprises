@@ -49,7 +49,7 @@ export default function TowingPage() {
         title={<>24×7 Vehicle Towing &amp; Recovery</>}
         subtitle="Broken down or stuck on NH-66? We tow cars, SUVs and pickups and handle breakdowns and accident recovery - any hour, any weather."
         image="/images/towing-innova.jpeg"
-        imageAlt="Bhagyashree tow truck towing a Toyota Innova in Bhatkal"
+        imageAlt="Bhagyashri tow truck towing a Toyota Innova in Bhatkal"
       />
 
       {/* Emergency banner */}

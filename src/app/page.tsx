@@ -20,9 +20,9 @@ import {
 import { buildMetadata } from '@/lib/seo';
 
 export const metadata = buildMetadata({
-  title: '24×7 Crane & Towing Service in Bhatkal | Bhagyashree Crane',
+  title: '24×7 Crane & Towing Service in Bhatkal | Bhagyashri Crane',
   description:
-    'Need a crane near me in Bhatkal? Bhagyashree Crane Service offers 24×7 crane rental, heavy lifting, boat lifting & vehicle towing across Bhatkal, Murudeshwar, Honnavar, Kumta, Sirsi & Karwar. Call 8105941529.',
+    'Need a crane near me in Bhatkal? Bhagyashri Crane Service offers 24×7 crane rental, heavy lifting, boat lifting & vehicle towing across Bhatkal, Murudeshwar, Honnavar, Kumta, Sirsi & Karwar. Call 8105941529.',
   path: '/',
 });
 
@@ -36,7 +36,7 @@ export default function HomePage() {
         <div className="absolute inset-0">
           <Image
             src="/images/crane-fishing-boat.jpeg"
-            alt="Bhagyashree ACE crane lifting a fishing boat in Bhatkal, Karnataka"
+            alt="Bhagyashri ACE crane lifting a fishing boat in Bhatkal, Karnataka"
             fill
             priority
             sizes="100vw"

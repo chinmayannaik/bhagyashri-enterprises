@@ -7,7 +7,7 @@ import { business, phonePrimaryDisplay, telHref } from '@/lib/site';
 export const metadata = buildMetadata({
   title: 'Privacy Policy',
   description:
-    'Privacy Policy for Bhagyashree Crane Service, Bhatkal. How we handle the information you share when you contact us for crane or towing services.',
+    'Privacy Policy for Bhagyashri Crane Service, Bhatkal. How we handle the information you share when you contact us for crane or towing services.',
   path: '/privacy-policy',
 });
 

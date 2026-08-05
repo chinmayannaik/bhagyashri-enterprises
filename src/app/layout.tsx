@@ -24,11 +24,11 @@ const display = Barlow_Condensed({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: '24×7 Crane & Towing Service in Bhatkal | Bhagyashree Crane Service',
-    template: '%s | Bhagyashree Crane Service',
+    default: '24×7 Crane & Towing Service in Bhatkal | Bhagyashri Crane Service',
+    template: '%s | Bhagyashri Crane Service',
   },
   description:
-    'Bhagyashree Crane Service - 24×7 crane rental, heavy lifting, boat lifting & vehicle towing in Bhatkal, Karnataka. Fast response, licensed operators, affordable pricing. Call 8105941529.',
+    'Bhagyashri Crane Service - 24×7 crane rental, heavy lifting, boat lifting & vehicle towing in Bhatkal, Karnataka. Fast response, licensed operators, affordable pricing. Call 8105941529.',
   keywords: [
     'Crane Service Bhatkal',
     'Crane Rental Bhatkal',

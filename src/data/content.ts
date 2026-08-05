@@ -12,7 +12,7 @@ export const galleryImages = [
   },
   {
     src: '/images/towing-innova.jpeg',
-    alt: 'Bhagyashree tow truck towing a Toyota Innova in Bhatkal',
+    alt: 'Bhagyashri tow truck towing a Toyota Innova in Bhatkal',
     caption: 'Innova recovery & towing',
     w: 1600,
     h: 900,
@@ -26,7 +26,7 @@ export const galleryImages = [
   },
   {
     src: '/images/towing-suv-ghat.jpeg',
-    alt: 'SUV breakdown recovery on a ghat road near Bhatkal by Bhagyashree towing',
+    alt: 'SUV breakdown recovery on a ghat road near Bhatkal by Bhagyashri towing',
     caption: 'Ghat-road SUV recovery',
     w: 1600,
     h: 700,
@@ -40,7 +40,7 @@ export const galleryImages = [
   },
   {
     src: '/images/crane-towing-fleet.jpeg',
-    alt: 'Bhagyashree Crane Service crane and towing fleet in Bhatkal',
+    alt: 'Bhagyashri Crane Service crane and towing fleet in Bhatkal',
     caption: 'Our crane & towing fleet',
     w: 1600,
     h: 900,

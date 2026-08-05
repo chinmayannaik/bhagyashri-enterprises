@@ -5,7 +5,7 @@ export function MapEmbed({ className = '' }: { className?: string }) {
   return (
     <div className={`overflow-hidden rounded-2xl border border-white/10 shadow-card ${className}`}>
       <iframe
-        title="Bhagyashree Crane Service location - Bhatkal, Karnataka"
+        title="Bhagyashri Crane Service location - Bhatkal, Karnataka"
         src={mapsEmbedSrc}
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"

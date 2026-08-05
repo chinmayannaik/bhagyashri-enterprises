@@ -18,9 +18,9 @@ import {
 } from '@/lib/site';
 
 export const metadata = buildMetadata({
-  title: 'Contact - Call Bhagyashree Crane Service, Bhatkal',
+  title: 'Contact - Call Bhagyashri Crane Service, Bhatkal',
   description:
-    'Contact Bhagyashree Crane Service in Bhatkal. Call 8105941529 or 9731298734, WhatsApp us or email bhagyashricraneservices@gmail.com. Open 24×7 for crane & towing.',
+    'Contact Bhagyashri Crane Service in Bhatkal. Call 8105941529 or 9731298734, WhatsApp us or email bhagyashricraneservices@gmail.com. Open 24×7 for crane & towing.',
   path: '/contact',
   image: '/images/crane-towing-fleet.jpeg',
 });
@@ -42,7 +42,7 @@ export default function ContactPage() {
         title={<>Get in Touch - We Answer 24×7</>}
         subtitle="Call, WhatsApp or email. For any emergency lift or towing, calling is always the fastest way to reach us."
         image="/images/crane-towing-fleet.jpeg"
-        imageAlt="Bhagyashree Crane Service crane and towing fleet in Bhatkal"
+        imageAlt="Bhagyashri Crane Service crane and towing fleet in Bhatkal"
         cta={false}
       />
 

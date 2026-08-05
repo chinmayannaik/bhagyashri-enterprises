@@ -2,7 +2,7 @@
   "name": "bhagyashree-crane",
   "version": "1.0.0",
   "private": true,
-  "description": "Bhagyashree Crane Service - 24x7 Crane & Towing in Bhatkal, Karnataka",
+  "description": "Bhagyashri Crane Service - 24x7 Crane & Towing in Bhatkal, Karnataka",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

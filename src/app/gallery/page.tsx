@@ -8,7 +8,7 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata = buildMetadata({
   title: 'Gallery - Crane & Towing Jobs in Bhatkal',
   description:
-    'Real photos of Bhagyashree Crane Service at work - boat lifting, heavy machinery, and vehicle towing and recovery across Bhatkal and the Uttara Kannada coast.',
+    'Real photos of Bhagyashri Crane Service at work - boat lifting, heavy machinery, and vehicle towing and recovery across Bhatkal and the Uttara Kannada coast.',
   path: '/gallery',
   image: '/images/crane-fishing-boat.jpeg',
 });
