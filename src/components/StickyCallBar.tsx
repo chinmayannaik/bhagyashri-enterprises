@@ -3,7 +3,7 @@
 import { PhoneIcon, WhatsAppIcon } from './Icons';
 import { telHref, whatsappHref, phonePrimaryDisplay } from '@/lib/site';
 
-/** Sticky bottom action bar — mobile only, thumb-reachable. */
+/** Sticky bottom action bar - mobile only, thumb-reachable. */
 export function StickyCallBar() {
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-brand-dark/95 backdrop-blur-md sm:hidden">

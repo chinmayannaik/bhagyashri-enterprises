@@ -51,7 +51,7 @@ export const whyChooseUs = [
   {
     icon: 'clock',
     title: '24×7 Availability',
-    body: 'Day or night, monsoon or peak traffic — one call and our crane is on the move. Emergencies never wait, and neither do we.',
+    body: 'Day or night, monsoon or peak traffic - one call and our crane is on the move. Emergencies never wait, and neither do we.',
   },
   {
     icon: 'medal',
@@ -61,7 +61,7 @@ export const whyChooseUs = [
   {
     icon: 'bolt',
     title: 'Quick Response',
-    body: 'Locally based in Bhatkal, we reach most spots on NH-66 and nearby towns fast — because every minute counts in a breakdown.',
+    body: 'Locally based in Bhatkal, we reach most spots on NH-66 and nearby towns fast - because every minute counts in a breakdown.',
   },
   {
     icon: 'rupee',
@@ -76,7 +76,7 @@ export const whyChooseUs = [
   {
     icon: 'pin',
     title: 'Local Experts',
-    body: 'We know these coastal roads, ghats, jetties and industrial yards inside out — from Karwar down to Kumta and Sirsi.',
+    body: 'We know these coastal roads, ghats, jetties and industrial yards inside out - from Karwar down to Kumta and Sirsi.',
   },
 ];
 
@@ -96,7 +96,7 @@ export const homeServices = [
   {
     icon: 'recovery',
     title: 'Vehicle Recovery',
-    body: 'Cars, SUVs and pickups recovered after breakdowns, ditches and accidents — safely.',
+    body: 'Cars, SUVs and pickups recovered after breakdowns, ditches and accidents - safely.',
     href: '/vehicle-towing',
   },
   {
@@ -111,7 +111,7 @@ export const homeServices = [
 export const craneServices = [
   {
     title: 'Crane Rental in Bhatkal',
-    body: 'Hourly and project-based hydraulic crane rental for construction sites, jetties and industrial yards. Tell us the load and location — we bring the right capacity crane.',
+    body: 'Hourly and project-based hydraulic crane rental for construction sites, jetties and industrial yards. Tell us the load and location - we bring the right capacity crane.',
   },
   {
     title: 'JCB & Equipment Support',
@@ -131,7 +131,7 @@ export const craneServices = [
   },
   {
     title: 'Boat Lifting & Launching',
-    body: 'Specialists in coastal work — hoisting fishing boats and trawlers on and off lorries, jetties and repair yards, even in monsoon.',
+    body: 'Specialists in coastal work - hoisting fishing boats and trawlers on and off lorries, jetties and repair yards, even in monsoon.',
   },
   {
     title: 'Building Materials Handling',
@@ -154,7 +154,7 @@ export const craneFaqs = [
   },
   {
     q: 'Do you provide crane rental on hourly basis?',
-    a: 'Yes. We offer both hourly crane rental and fixed-price rates for full projects. You get a clear quote before work begins — no hidden charges.',
+    a: 'Yes. We offer both hourly crane rental and fixed-price rates for full projects. You get a clear quote before work begins - no hidden charges.',
   },
   {
     q: 'Can you lift boats onto lorries and jetties?',
@@ -162,7 +162,7 @@ export const craneFaqs = [
   },
   {
     q: 'Do you work outside Bhatkal?',
-    a: 'Yes — we serve Murudeshwar, Honnavar, Kumta, Sirsi, Karwar and nearby areas along the Uttara Kannada coast.',
+    a: 'Yes - we serve Murudeshwar, Honnavar, Kumta, Sirsi, Karwar and nearby areas along the Uttara Kannada coast.',
   },
 ];
 
@@ -176,7 +176,7 @@ export const towingServices = [
   {
     icon: 'wrench',
     title: 'Breakdown Assistance',
-    body: 'Engine failure, flat battery or a car that just won’t start — we tow you to the nearest garage or your destination.',
+    body: 'Engine failure, flat battery or a car that just won’t start - we tow you to the nearest garage or your destination.',
   },
   {
     icon: 'alert',
@@ -206,7 +206,7 @@ export const towingServices = [
   {
     icon: 'bolt',
     title: 'Emergency Towing 24×7',
-    body: 'Round-the-clock emergency towing — one call and help is on the way at any hour.',
+    body: 'Round-the-clock emergency towing - one call and help is on the way at any hour.',
   },
 ];
 
@@ -220,7 +220,7 @@ export const towingFaqs = [
     a: 'We tow cars, SUVs, jeeps, pickups and light goods vehicles. For anything heavier or unusual, call us and we will arrange the right equipment.',
   },
   {
-    q: 'My car broke down on the highway — what do I do?',
+    q: 'My car broke down on the highway - what do I do?',
     a: 'Move to a safe spot, switch on your hazard lights, and call 8105941529. Share your exact location (a live location on WhatsApp helps) and we will reach you as fast as possible.',
   },
   {
@@ -229,7 +229,7 @@ export const towingFaqs = [
   },
   {
     q: 'How much does towing cost?',
-    a: 'Charges depend on distance, vehicle type and road conditions. We give you a clear, upfront price when you call — no surprises later.',
+    a: 'Charges depend on distance, vehicle type and road conditions. We give you a clear, upfront price when you call - no surprises later.',
   },
 ];
 
@@ -262,7 +262,7 @@ export const areaDetails = [
     name: 'Bhatkal',
     intro:
       'Our home base. As a Bhatkal-based crane and towing service, we reach most parts of town and the surrounding jetties and industrial yards quickly.',
-    line: 'From boat lifting at the fishing harbour to emergency car towing on NH-66, Bhatkal is where we respond fastest — 24×7.',
+    line: 'From boat lifting at the fishing harbour to emergency car towing on NH-66, Bhatkal is where we respond fastest - 24×7.',
   },
   {
     slug: 'murudeshwar',

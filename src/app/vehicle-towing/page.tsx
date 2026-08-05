@@ -47,7 +47,7 @@ export default function TowingPage() {
           { name: 'Vehicle Towing', path: '/vehicle-towing' },
         ]}
         title={<>24×7 Vehicle Towing &amp; Recovery</>}
-        subtitle="Broken down or stuck on NH-66? We tow cars, SUVs and pickups and handle breakdowns and accident recovery — any hour, any weather."
+        subtitle="Broken down or stuck on NH-66? We tow cars, SUVs and pickups and handle breakdowns and accident recovery - any hour, any weather."
         image="/images/towing-innova.jpeg"
         imageAlt="Bhagyashree tow truck towing a Toyota Innova in Bhatkal"
       />
@@ -57,7 +57,7 @@ export default function TowingPage() {
         <div className="container-px flex flex-col items-center justify-between gap-4 py-5 sm:flex-row">
           <p className="flex items-center gap-2.5 text-center text-sm font-semibold text-brand-mist sm:text-left">
             <AlertIcon className="h-5 w-5 flex-shrink-0 text-brand-yellow" />
-            Stranded right now? Don&apos;t wait — we answer 24×7.
+            Stranded right now? Don&apos;t wait - we answer 24×7.
           </p>
           <a href={telHref} className="btn-primary w-full sm:w-auto">
             <PhoneIcon className="h-5 w-5" /> Call {phonePrimaryDisplay}
@@ -131,7 +131,7 @@ export default function TowingPage() {
 
       <CtaBanner
         title="Need a Tow Right Now?"
-        subtitle="One call and our recovery crew is on the way — anywhere across Bhatkal and NH-66."
+        subtitle="One call and our recovery crew is on the way - anywhere across Bhatkal and NH-66."
       />
 
       {/* FAQ */}

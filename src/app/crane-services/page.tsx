@@ -48,7 +48,7 @@ export default function CranePage() {
           { name: 'Crane Services', path: '/crane-services' },
         ]}
         title={<>Crane Service &amp; Rental in Bhatkal</>}
-        subtitle="Modern hydraulic cranes for boat lifting, heavy machinery, construction and industrial loads — booked by the hour or the project. 24×7 across the coast."
+        subtitle="Modern hydraulic cranes for boat lifting, heavy machinery, construction and industrial loads - booked by the hour or the project. 24×7 across the coast."
         image="/images/crane-boat-lifting.jpeg"
         imageAlt="ACE hydraulic crane lifting a fishing boat onto a lorry in Bhatkal"
       />
@@ -115,7 +115,7 @@ export default function CranePage() {
 
       <CtaBanner
         title="Book a Crane in Bhatkal Today"
-        subtitle="Tell us the load and location — we'll confirm the right crane and an honest rate before we start."
+        subtitle="Tell us the load and location - we'll confirm the right crane and an honest rate before we start."
       />
 
       {/* FAQ */}

@@ -3,7 +3,7 @@ import { business } from '@/lib/site';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: `${business.name} — 24×7 Crane & Towing, Bhatkal`,
+    name: `${business.name} - 24×7 Crane & Towing, Bhatkal`,
     short_name: 'Bhagyashree Crane',
     description:
       '24×7 crane rental, heavy lifting and vehicle towing in Bhatkal, Karnataka.',

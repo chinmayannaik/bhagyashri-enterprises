@@ -1,4 +1,4 @@
-# Bhagyashree Crane Service — Website
+# Bhagyashree Crane Service - Website
 
 Production-ready, mobile-first, SEO-optimized marketing site for **Bhagyashree Crane Service**, Bhatkal, Karnataka. Built to generate phone calls.
 

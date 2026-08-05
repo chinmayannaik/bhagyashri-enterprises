@@ -10,7 +10,7 @@ function JsonLdScript({ data }: { data: object }) {
   );
 }
 
-/** LocalBusiness + Organization — rendered once in the root layout. */
+/** LocalBusiness + Organization - rendered once in the root layout. */
 export function OrganizationJsonLd() {
   const data = {
     '@context': 'https://schema.org',

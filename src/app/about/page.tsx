@@ -10,7 +10,7 @@ import { buildMetadata } from '@/lib/seo';
 import { business } from '@/lib/site';
 
 export const metadata = buildMetadata({
-  title: 'About Us — Bhatkal Crane & Towing Experts',
+  title: 'About Us - Bhatkal Crane & Towing Experts',
   description:
     'Bhagyashree Crane Service is a Bhatkal-based crane and towing company run by Kumar Naik. 10+ years lifting boats, machinery and recovering vehicles across the Uttara Kannada coast.',
   path: '/about',
@@ -57,7 +57,7 @@ export default function AboutPage() {
             <div className="mt-6 space-y-4 text-[15px] leading-relaxed text-brand-fog">
               <p>
                 Bhagyashree Crane Service began with a simple idea: when something heavy needs
-                lifting — or a vehicle breaks down on the highway — people in Bhatkal deserve help
+                lifting - or a vehicle breaks down on the highway - people in Bhatkal deserve help
                 that actually shows up, fast. Founded and run by{' '}
                 <span className="font-semibold text-brand-mist">{business.owner}</span>, the business
                 has spent over a decade doing exactly that.
@@ -69,7 +69,7 @@ export default function AboutPage() {
                 NH-66 between Karwar and Kumta.
               </p>
               <p>
-                Today we run modern ACE hydraulic cranes alongside a dependable towing fleet — but the
+                Today we run modern ACE hydraulic cranes alongside a dependable towing fleet - but the
                 promise hasn&apos;t changed. Pick up the phone, and we&apos;re on the way.
               </p>
             </div>
@@ -96,7 +96,7 @@ export default function AboutPage() {
             <span className="eyebrow">Our Mission</span>
             <p className="h-display mt-4 text-2xl leading-snug text-white sm:text-3xl">
               To be the fastest, safest and most trusted crane &amp; towing service on the Uttara
-              Kannada coast — one honest job at a time.
+              Kannada coast - one honest job at a time.
             </p>
           </div>
 
@@ -136,7 +136,7 @@ export default function AboutPage() {
               align="left"
               eyebrow="Why Customers Trust Us"
               title="Experience You Can Count On"
-              subtitle="Ten years on these roads means we've seen — and solved — almost every kind of lift and recovery."
+              subtitle="Ten years on these roads means we've seen - and solved - almost every kind of lift and recovery."
             />
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
               {trustPoints.map((p) => (

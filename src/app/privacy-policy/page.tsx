@@ -46,12 +46,12 @@ export default function PrivacyPage() {
             <Block title="Information We Collect">
               <ul className="list-disc space-y-1.5 pl-5">
                 <li>
-                  <strong className="text-brand-mist">Details you give us</strong> — such as your
+                  <strong className="text-brand-mist">Details you give us</strong> - such as your
                   name, phone number, location and job details when you call, WhatsApp, email or
                   submit our quote form.
                 </li>
                 <li>
-                  <strong className="text-brand-mist">Basic usage data</strong> — like the pages you
+                  <strong className="text-brand-mist">Basic usage data</strong> - like the pages you
                   visit, collected through standard analytics to help us improve the website.
                 </li>
               </ul>
@@ -107,7 +107,7 @@ export default function PrivacyPage() {
               <p>
                 For any questions about this Privacy Policy or your information, reach{' '}
                 {business.name}, {business.address.locality}, {business.address.region}{' '}
-                {business.address.postalCode} — phone{' '}
+                {business.address.postalCode} - phone{' '}
                 <a href={telHref} className="font-semibold text-brand-yellow">
                   {phonePrimaryDisplay}
                 </a>

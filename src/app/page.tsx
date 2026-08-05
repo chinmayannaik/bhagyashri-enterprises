@@ -65,7 +65,7 @@ export default function HomePage() {
           </Reveal>
           <Reveal delay={0.18}>
             <p className="mt-3 max-w-xl text-base leading-relaxed text-brand-fog">
-              Crane rental, heavy lifting, boat lifting and emergency vehicle recovery — one call and
+              Crane rental, heavy lifting, boat lifting and emergency vehicle recovery - one call and
               our crew is on the way across the Uttara Kannada coast.
             </p>
           </Reveal>
@@ -110,7 +110,7 @@ export default function HomePage() {
         <SectionHeading
           eyebrow="What We Do"
           title="Crane & Towing, Done Right"
-          subtitle="From lifting fishing boats and factory machinery to recovering stranded vehicles on NH-66 — we handle the heavy work so you don't have to."
+          subtitle="From lifting fishing boats and factory machinery to recovering stranded vehicles on NH-66 - we handle the heavy work so you don't have to."
         />
         <RevealStagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {homeServices.map((s) => {
@@ -260,11 +260,11 @@ export default function HomePage() {
               align="left"
               eyebrow="Request a Quote"
               title="Tell Us What You Need Lifted or Towed"
-              subtitle="Send your details and we'll get straight back to you on WhatsApp. For emergencies, always call — it's faster."
+              subtitle="Send your details and we'll get straight back to you on WhatsApp. For emergencies, always call - it's faster."
             />
             <ul className="mt-8 space-y-4">
               {[
-                { Icon: ClockIcon, t: 'Answered 24×7', d: 'Day, night, monsoon — we pick up.' },
+                { Icon: ClockIcon, t: 'Answered 24×7', d: 'Day, night, monsoon - we pick up.' },
                 { Icon: MedalIcon, t: 'Licensed operators', d: '10+ years of coastal experience.' },
                 { Icon: ShieldIcon, t: 'Safe, insured handling', d: 'Your vehicle and cargo protected.' },
               ].map(({ Icon, t, d }) => (

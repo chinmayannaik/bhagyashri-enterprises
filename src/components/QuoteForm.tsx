@@ -126,7 +126,7 @@ export function QuoteForm() {
         <a href={telHref} className="font-semibold text-brand-yellow">
           {phonePrimaryDisplay}
         </a>{' '}
-        — we answer 24×7.
+        - we answer 24×7.
       </p>
     </form>
   );

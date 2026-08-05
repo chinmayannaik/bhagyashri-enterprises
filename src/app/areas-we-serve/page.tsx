@@ -11,7 +11,7 @@ import { buildMetadata } from '@/lib/seo';
 import { telHref, phonePrimaryDisplay } from '@/lib/site';
 
 export const metadata = buildMetadata({
-  title: 'Areas We Serve — Crane & Towing Across Uttara Kannada',
+  title: 'Areas We Serve - Crane & Towing Across Uttara Kannada',
   description:
     'Crane service, heavy lifting, vehicle recovery and towing in Bhatkal, Murudeshwar, Honnavar, Kumta, Sirsi and Karwar. 24×7 emergency response across the coast.',
   path: '/areas-we-serve',
@@ -41,7 +41,7 @@ export default function AreasPage() {
           { name: 'Areas We Serve', path: '/areas-we-serve' },
         ]}
         title={<>Crane &amp; Towing Across the Coast</>}
-        subtitle="Based in Bhatkal, we serve the whole Uttara Kannada belt — from Karwar in the north down to Kumta and inland to Sirsi. Quick response, wherever you are."
+        subtitle="Based in Bhatkal, we serve the whole Uttara Kannada belt - from Karwar in the north down to Kumta and inland to Sirsi. Quick response, wherever you are."
         image="/images/towing-suv-ghat.jpeg"
         imageAlt="Towing and recovery on the coastal highway near Bhatkal"
       />

@@ -3,7 +3,7 @@ import { CraneIcon } from './Icons';
 
 export function Logo({ compact = false }: { compact?: boolean }) {
   return (
-    <Link href="/" className="group flex items-center gap-2.5" aria-label="Bhagyashree Crane Service — Home">
+    <Link href="/" className="group flex items-center gap-2.5" aria-label="Bhagyashree Crane Service - Home">
       <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-b from-brand-yellow to-brand-amber text-black shadow-glow">
         <CraneIcon className="h-6 w-6" />
       </span>

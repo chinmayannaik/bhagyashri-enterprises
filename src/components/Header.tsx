@@ -30,17 +30,17 @@ export function Header() {
           : 'bg-gradient-to-b from-black/70 to-transparent'
       }`}
     >
-      <div className="container-px flex h-16 items-center justify-between">
+      <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between gap-4 px-5 sm:px-6 lg:px-8">
         <Logo />
 
-        <nav className="hidden items-center gap-6 lg:flex">
+        <nav className="hidden items-center gap-5 xl:flex">
           {navLinks.map((l) => {
             const active = pathname === l.href;
             return (
               <Link
                 key={l.href}
                 href={l.href}
-                className={`link-underline text-sm font-semibold transition-colors ${
+                className={`link-underline whitespace-nowrap text-sm font-semibold transition-colors ${
                   active ? 'text-brand-yellow' : 'text-brand-mist/80 hover:text-white'
                 }`}
               >
@@ -51,14 +51,17 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <a href={telHref} className="hidden btn-primary !px-4 !py-2.5 text-sm sm:inline-flex">
-            <PhoneIcon className="h-4 w-4" />
+          <a
+            href={telHref}
+            className="hidden btn-primary !px-4 !py-2.5 whitespace-nowrap text-sm sm:inline-flex"
+          >
+            <PhoneIcon className="h-4 w-4 flex-shrink-0" />
             {phonePrimaryDisplay}
           </a>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="grid h-11 w-11 place-items-center rounded-xl border border-white/15 bg-white/5 text-white lg:hidden"
+            className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-xl border border-white/15 bg-white/5 text-white xl:hidden"
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
           >
@@ -74,9 +77,9 @@ export function Header() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="overflow-hidden border-t border-white/10 bg-brand-dark/95 backdrop-blur-md lg:hidden"
+            className="overflow-hidden border-t border-white/10 bg-brand-dark/95 backdrop-blur-md xl:hidden"
           >
-            <nav className="container-px flex flex-col gap-1 py-4">
+            <nav className="mx-auto flex w-full max-w-7xl flex-col gap-1 px-5 py-4 sm:px-6 lg:px-8">
               {navLinks.map((l) => {
                 const active = pathname === l.href;
                 return (
