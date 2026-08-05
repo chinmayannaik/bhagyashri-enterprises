@@ -2,7 +2,7 @@
 // Central business configuration. Edit values here to update the whole site.
 // ---------------------------------------------------------------------------
 
-export const SITE_URL = 'https://bhagyashreecrane.com';
+export const SITE_URL = 'https://bhagyashri-enterprises.vercel.app';
 
 export const business = {
   name: 'Bhagyashri Crane Service',
