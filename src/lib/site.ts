@@ -10,20 +10,20 @@ export const business = {
   owner: 'Kumar Naik',
   tagline: '24×7 Crane & Towing Services in Bhatkal',
   subTagline: 'Fast Response • Licensed Operators • Affordable Pricing',
-  // Primary phone drives all Call-Now buttons
-  phonePrimary: '8105941529',
-  phoneSecondary: '9731298734',
+  // Primary phone drives all Call-Now buttons (Kumar Naik, owner)
+  phonePrimary: '9731298734',
+  phoneSecondary: '8105941529',
   email: 'bhagyashricraneservices@gmail.com',
-  whatsapp: '918105941529', // international format, no +
+  whatsapp: '919731298734', // international format, no + (Kumar's number)
   address: {
-    line: 'Bhatkal',
+    line: 'NH-66, Hebbale',
     locality: 'Bhatkal',
     region: 'Karnataka',
     postalCode: '581320',
     country: 'IN',
   },
   geo: {
-    // Bhatkal town coordinates
+    // Near IndianOil pump, NH-66, Hebbale, Bhatkal (approx.)
     lat: 13.9855,
     lng: 74.5551,
   },
@@ -33,8 +33,8 @@ export const business = {
 } as const;
 
 // Pretty-printed phone numbers
-export const phonePrimaryDisplay = '+91 81059 41529';
-export const phoneSecondaryDisplay = '+91 97312 98734';
+export const phonePrimaryDisplay = '+91 97312 98734';
+export const phoneSecondaryDisplay = '+91 81059 41529';
 
 // tel: / wa.me / maps helpers ----------------------------------------------
 export const telHref = `tel:+91${business.phonePrimary}`;
@@ -46,10 +46,15 @@ export const whatsappHref = `https://wa.me/${business.whatsapp}?text=${encodeURI
   whatsappMessage,
 )}`;
 
-export const mapsDirectionsHref = `https://www.google.com/maps/dir/?api=1&destination=${business.geo.lat},${business.geo.lng}&destination_place_id=Bhatkal`;
+// Real business location shared by the owner (Google Maps short link)
+export const mapsShortLink = 'https://maps.app.goo.gl/uNaZCk3pv4JsQyqy8';
 
+// "Get Directions" opens the exact pinned place; Directions is one tap away.
+export const mapsDirectionsHref = mapsShortLink;
+
+// Iframe-safe embed pinned to the business location via Google's place query.
 export const mapsEmbedSrc =
-  'https://www.google.com/maps?q=Bhatkal,Karnataka%20581320&z=13&output=embed';
+  'https://www.google.com/maps?q=IndianOil,+NH+66,+Hebbale,+Bhatkal,+Karnataka+581320&z=15&output=embed';
 
 // Navigation ----------------------------------------------------------------
 export const navLinks = [

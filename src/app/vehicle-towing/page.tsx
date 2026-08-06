@@ -13,7 +13,7 @@ import { telHref, phonePrimaryDisplay } from '@/lib/site';
 export const metadata = buildMetadata({
   title: 'Vehicle Towing & Breakdown Recovery in Bhatkal | 24×7',
   description:
-    '24×7 vehicle towing, car & SUV towing, breakdown assistance, accident recovery and roadside assistance in Bhatkal and NH-66. Fast emergency recovery. Call 8105941529.',
+    '24×7 vehicle towing, car & SUV towing, breakdown assistance, accident recovery and roadside assistance in Bhatkal and NH-66. Fast emergency recovery. Call 9731298734.',
   path: '/vehicle-towing',
   image: '/images/towing-innova.jpeg',
 });

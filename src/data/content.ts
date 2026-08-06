@@ -146,7 +146,7 @@ export const craneServices = [
 export const craneFaqs = [
   {
     q: 'How quickly can you send a crane in Bhatkal?',
-    a: 'For most jobs inside Bhatkal town we can mobilise within a short time. Call 8105941529 with your location and load details and we will give you an honest arrival estimate right away.',
+    a: 'For most jobs inside Bhatkal town we can mobilise within a short time. Call 9731298734 with your location and load details and we will give you an honest arrival estimate right away.',
   },
   {
     q: 'What can your cranes lift?',
@@ -213,7 +213,7 @@ export const towingServices = [
 export const towingFaqs = [
   {
     q: 'Do you offer 24×7 towing near Bhatkal?',
-    a: 'Yes. Our towing service runs 24 hours a day, all week. Whether it’s midnight on NH-66 or early morning on a ghat road, call 8105941529 and we will come to you.',
+    a: 'Yes. Our towing service runs 24 hours a day, all week. Whether it’s midnight on NH-66 or early morning on a ghat road, call 9731298734 and we will come to you.',
   },
   {
     q: 'What vehicles can you tow?',
@@ -221,7 +221,7 @@ export const towingFaqs = [
   },
   {
     q: 'My car broke down on the highway - what do I do?',
-    a: 'Move to a safe spot, switch on your hazard lights, and call 8105941529. Share your exact location (a live location on WhatsApp helps) and we will reach you as fast as possible.',
+    a: 'Move to a safe spot, switch on your hazard lights, and call 9731298734. Share your exact location (a live location on WhatsApp helps) and we will reach you as fast as possible.',
   },
   {
     q: 'Can you recover a vehicle after an accident?',

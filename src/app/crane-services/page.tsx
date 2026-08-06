@@ -12,7 +12,7 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata = buildMetadata({
   title: 'Crane Service & Crane Rental in Bhatkal | JCB Crane Hire',
   description:
-    'Hydraulic crane rental in Bhatkal for heavy lifting, boat lifting, factory machinery, construction & industrial equipment. JCB crane hire, 24×7. Call 8105941529 for a quote.',
+    'Hydraulic crane rental in Bhatkal for heavy lifting, boat lifting, factory machinery, construction & industrial equipment. JCB crane hire, 24×7. Call 9731298734 for a quote.',
   path: '/crane-services',
   image: '/images/crane-boat-lifting.jpeg',
 });

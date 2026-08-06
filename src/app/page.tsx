@@ -22,7 +22,7 @@ import { buildMetadata } from '@/lib/seo';
 export const metadata = buildMetadata({
   title: '24×7 Crane & Towing Service in Bhatkal | Bhagyashri Crane',
   description:
-    'Need a crane near me in Bhatkal? Bhagyashri Crane Service offers 24×7 crane rental, heavy lifting, boat lifting & vehicle towing across Bhatkal, Murudeshwar, Honnavar, Kumta, Sirsi & Karwar. Call 8105941529.',
+    'Need a crane near me in Bhatkal? Bhagyashri Crane Service offers 24×7 crane rental, heavy lifting, boat lifting & vehicle towing across Bhatkal, Murudeshwar, Honnavar, Kumta, Sirsi & Karwar. Call 9731298734.',
   path: '/',
 });
 
