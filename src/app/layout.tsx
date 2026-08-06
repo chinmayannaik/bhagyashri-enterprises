@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: '%s | Bhagyashri Crane Service',
   },
   description:
-    'Bhagyashri Crane Service - 24×7 crane rental, heavy lifting, boat lifting & vehicle towing in Bhatkal, Karnataka. Fast response, licensed operators, affordable pricing. Call 9731298734.',
+    'Bhagyashri Crane Service - 24×7 crane rental, man bucket aerial work, heavy lifting, boat lifting & vehicle towing in Bhatkal, Karnataka. Fast response, licensed operators, affordable pricing. Call 9731298734.',
   keywords: [
     'Crane Service Bhatkal',
     'Crane Rental Bhatkal',
@@ -42,6 +42,14 @@ export const metadata: Metadata = {
     'Emergency Recovery',
     'Breakdown Recovery',
     'Boat Lifting Bhatkal',
+    'Man Bucket Crane',
+    'Aerial Work Platform Bhatkal',
+    'Man Lift Bhatkal',
+    'Steel Erection',
+    'Machinery Shifting',
+    'Plant Installation',
+    'Building Construction Crane',
+    'Bridge & Infrastructure Works',
   ],
   authors: [{ name: business.owner }],
   creator: business.name,

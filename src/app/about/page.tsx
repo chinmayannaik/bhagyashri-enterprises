@@ -28,6 +28,7 @@ const trustPoints = [
   'Modern ACE hydraulic mobile cranes',
   'Dedicated towing fleet for cars, SUVs & pickups',
   'Specialists in coastal boat lifting',
+  'Man bucket for safe work at height',
   'Transparent, upfront pricing',
   'Prompt response across 6+ towns',
 ];

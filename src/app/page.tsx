@@ -115,7 +115,7 @@ export default async function HomePage() {
           title="Crane & Towing, Done Right"
           subtitle="From lifting fishing boats and factory machinery to recovering stranded vehicles on NH-66 - we handle the heavy work so you don't have to."
         />
-        <RevealStagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <RevealStagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {homeServices.map((s) => {
             const Icon = iconMap[s.icon as keyof typeof iconMap];
             return (

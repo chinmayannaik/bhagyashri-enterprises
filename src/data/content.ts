@@ -11,6 +11,27 @@ export const galleryImages = [
     h: 740,
   },
   {
+    src: '/images/man-bucket-aerial-work.jpeg',
+    alt: 'Bhagyashri crane man bucket lifting workers to a streetlight pole in Bhatkal',
+    caption: 'Man bucket — aerial work platform',
+    w: 1600,
+    h: 720,
+  },
+  {
+    src: '/images/man-bucket-streetlight.jpeg',
+    alt: 'Crane-mounted personnel basket for streetlight maintenance near Bhatkal',
+    caption: 'Streetlight maintenance by man lift',
+    w: 720,
+    h: 1600,
+  },
+  {
+    src: '/images/man-bucket-bridge.jpeg',
+    alt: 'Bhagyashri crane man basket used for bridge and highway pole work',
+    caption: 'Man basket for bridge & pole work',
+    w: 720,
+    h: 1600,
+  },
+  {
     src: '/images/towing-innova.jpeg',
     alt: 'Bhagyashri tow truck towing a Toyota Innova in Bhatkal',
     caption: 'Innova recovery & towing',
@@ -89,8 +110,20 @@ export const homeServices = [
   },
   {
     icon: 'lift',
+    title: 'Man Bucket / Aerial Work',
+    body: 'Crane-mounted man basket to work safely at height - streetlights, poles, hoardings and painting.',
+    href: '/crane-services',
+  },
+  {
+    icon: 'lift',
     title: 'Heavy Lifting',
     body: 'Factory equipment, generators and industrial loads shifted and placed with precision.',
+    href: '/crane-services',
+  },
+  {
+    icon: 'crane',
+    title: 'Construction & Steel Erection',
+    body: 'Building construction support, steel erection, plant installation and infrastructure works.',
     href: '/crane-services',
   },
   {
@@ -141,7 +174,70 @@ export const craneServices = [
     title: 'Industrial Equipment Placement',
     body: 'Precise placement of tanks, silos and heavy fabricated units with proper load calculation and balancing.',
   },
+  {
+    title: 'Building Construction Support',
+    body: 'On-site crane support for building construction — lifting slabs, columns, formwork and materials to any floor safely and on schedule.',
+  },
+  {
+    title: 'Steel Erection',
+    body: 'Erection of steel structures, trusses, beams and fabricated frames for sheds, factories and commercial buildings.',
+  },
+  {
+    title: 'Loading & Unloading',
+    body: 'Fast, safe loading and unloading of heavy goods, containers and equipment from lorries, trailers and yards.',
+  },
+  {
+    title: 'Plant Installation',
+    body: 'Lifting and positioning of plant, machinery and equipment during new installations and factory setups.',
+  },
+  {
+    title: 'Bridge & Infrastructure Works',
+    body: 'Crane support for bridges, highways, culverts and public infrastructure projects across the coast and NH-66.',
+  },
+  {
+    title: 'Industrial & Commercial Works',
+    body: 'Reliable lifting for factories, warehouses, showrooms and commercial sites — one-off jobs or ongoing project work.',
+  },
+  {
+    title: 'All Types of Lifting Solutions',
+    body: 'From a single awkward lift to a full project, tell us what you need moved and we will bring the right crane and rigging.',
+  },
 ];
+
+// Man Bucket / aerial work platform — highlighted speciality service
+export const manBucket = {
+  eyebrow: 'Speciality Service',
+  title: 'Man Bucket / Aerial Work Platform',
+  lead: 'Need to work safely at height? Our crane-mounted man basket lifts your workers up to streetlights, poles, hoardings, trees, bridges and building facades — steady, secure and ready 24×7.',
+  points: [
+    'Streetlight & electrical pole maintenance',
+    'Hoarding, banner & signboard fitting',
+    'Building painting, cleaning & facade work',
+    'Tree cutting & coconut tree work',
+    'Bridge, highway & infrastructure jobs',
+    'Trained operator with safety-first handling',
+  ],
+  images: [
+    {
+      src: '/images/man-bucket-aerial-work.jpeg',
+      alt: 'Bhagyashri crane man bucket lifting workers to a streetlight pole in Bhatkal',
+      w: 1600,
+      h: 720,
+    },
+    {
+      src: '/images/man-bucket-streetlight.jpeg',
+      alt: 'Crane-mounted personnel basket for streetlight maintenance near Bhatkal',
+      w: 720,
+      h: 1600,
+    },
+    {
+      src: '/images/man-bucket-bridge.jpeg',
+      alt: 'Bhagyashri crane man basket used for bridge and highway pole work',
+      w: 720,
+      h: 1600,
+    },
+  ],
+};
 
 export const craneFaqs = [
   {
@@ -159,6 +255,18 @@ export const craneFaqs = [
   {
     q: 'Can you lift boats onto lorries and jetties?',
     a: 'Absolutely. Coastal boat lifting is one of our core specialities. We handle loading and unloading of fishing boats and trawlers even during heavy monsoon.',
+  },
+  {
+    q: 'Do you provide a man bucket for working at height?',
+    a: 'Yes. We provide a crane-mounted man bucket (aerial work platform) for streetlight and electrical pole work, hoarding and signboard fitting, building painting and cleaning, tree cutting and bridge work. Our operator handles it with full safety precautions.',
+  },
+  {
+    q: 'Can the man basket be used for streetlight and pole maintenance?',
+    a: 'That is one of our most common jobs. We regularly lift workers to streetlights, electric poles and highway poles across Bhatkal and NH-66, day or night.',
+  },
+  {
+    q: 'Do you handle construction, steel erection and plant installation?',
+    a: 'Yes. Along with lifting, we support building construction, steel erection, machinery shifting, loading and unloading, plant installation and bridge or infrastructure works for industrial and commercial customers.',
   },
   {
     q: 'Do you work outside Bhatkal?',
