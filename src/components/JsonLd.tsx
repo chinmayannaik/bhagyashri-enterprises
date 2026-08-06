@@ -25,7 +25,7 @@ export function OrganizationJsonLd() {
     email: business.email,
     founder: { '@type': 'Person', name: business.owner },
     image: `${SITE_URL}/images/crane-boat-lifting.jpeg`,
-    logo: `${SITE_URL}/icon.svg`,
+    logo: `${SITE_URL}/images/logo-icon-512.png`,
     priceRange: '₹₹',
     address: {
       '@type': 'PostalAddress',

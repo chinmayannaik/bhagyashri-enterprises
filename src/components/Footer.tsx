@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Logo } from './Logo';
+import { LogoFull } from './Logo';
 import { PhoneIcon, WhatsAppIcon, MailIcon, DirectionsIcon } from './Icons';
 import {
   navLinks,
@@ -18,7 +18,9 @@ export function Footer() {
     <footer className="border-t border-white/10 bg-brand-steel/60">
       <div className="container-px grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <Logo />
+          <Link href="/" aria-label="Bhagyashri Cranes & Towing - Home" className="inline-block">
+            <LogoFull className="h-24 w-auto sm:h-28" />
+          </Link>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-brand-fog">
             24×7 crane, heavy lifting and vehicle towing across Bhatkal and the Uttara Kannada
             coast. Licensed operators, quick response, honest pricing.

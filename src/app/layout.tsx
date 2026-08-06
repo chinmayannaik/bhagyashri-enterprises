@@ -61,10 +61,8 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
   },
-  icons: {
-    icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
-    apple: '/icon.svg',
-  },
+  // icon.png / apple-icon.png in src/app are picked up automatically by Next,
+  // so no manual `icons` entry is needed here.
 };
 
 export const viewport: Viewport = {
