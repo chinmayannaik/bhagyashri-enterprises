@@ -1,8 +1,10 @@
 // ---------------------------------------------------------------------------
 // Gallery image source.
 //
-// Photos are managed by the owner in the Cloudinary Media Library (no code,
-// no redeploy). Any image tagged "gallery" in Cloudinary shows up here.
+// The gallery is the curated bundled photos in /public/images (see
+// data/content.ts, which carries their hand-written captions) PLUS anything the
+// owner tags "gallery" in the Cloudinary Media Library. Cloudinary uploads are
+// additive — they never replace the bundled set.
 //
 // Uses Cloudinary's Admin API (`/resources/by_tag/...`) rather than the legacy
 // `res.cloudinary.com/<cloud>/image/list/<tag>.json` endpoint, which is
@@ -59,12 +61,22 @@ function deliveryUrl(r: CloudinaryResource, width: number): string {
 }
 
 /**
- * Returns the gallery images. Fetches from Cloudinary when configured,
- * revalidated every 60s so new uploads appear within a minute with no deploy.
- * Falls back to the bundled /public/images set on any failure.
+ * Returns the gallery images: the curated bundled photos (with their
+ * hand-written captions) first, followed by anything the owner has uploaded to
+ * Cloudinary under the `gallery` tag, newest first.
+ *
+ * Revalidated every 60s, so new Cloudinary uploads appear within a minute with
+ * no redeploy. If Cloudinary is unconfigured or unreachable, the bundled photos
+ * are still shown on their own.
  */
 export async function getGalleryImages(): Promise<GalleryImage[]> {
-  if (!CLOUD || !KEY || !SECRET) return localFallback;
+  const cloudImages = await getCloudinaryImages();
+  return [...localFallback, ...cloudImages];
+}
+
+/** Cloudinary-hosted photos only. Returns [] on any failure. */
+async function getCloudinaryImages(): Promise<GalleryImage[]> {
+  if (!CLOUD || !KEY || !SECRET) return [];
 
   try {
     const auth = Buffer.from(`${KEY}:${SECRET}`).toString('base64');
@@ -79,14 +91,14 @@ export async function getGalleryImages(): Promise<GalleryImage[]> {
 
     if (!res.ok) {
       console.error(
-        `[gallery] Cloudinary Admin API returned ${res.status}. Falling back to local images.`,
+        `[gallery] Cloudinary Admin API returned ${res.status}. Showing bundled photos only.`,
       );
-      return localFallback;
+      return [];
     }
 
     const data = (await res.json()) as { resources?: CloudinaryResource[] };
     const resources = Array.isArray(data.resources) ? data.resources : [];
-    if (resources.length === 0) return localFallback;
+    if (resources.length === 0) return [];
 
     return resources
       .slice()
@@ -106,7 +118,7 @@ export async function getGalleryImages(): Promise<GalleryImage[]> {
         };
       });
   } catch (err) {
-    console.error('[gallery] Cloudinary fetch failed, using local images.', err);
-    return localFallback;
+    console.error('[gallery] Cloudinary fetch failed. Showing bundled photos only.', err);
+    return [];
   }
 }
