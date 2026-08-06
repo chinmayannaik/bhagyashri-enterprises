@@ -10,17 +10,15 @@ import { buildMetadata } from '@/lib/seo';
 import {
   business,
   telHref,
-  telHrefSecondary,
   whatsappHref,
   mapsDirectionsHref,
   phonePrimaryDisplay,
-  phoneSecondaryDisplay,
 } from '@/lib/site';
 
 export const metadata = buildMetadata({
   title: 'Contact - Call Bhagyashri Crane Service, Bhatkal',
   description:
-    'Contact Bhagyashri Crane Service in Bhatkal. Call 9731298734 or 8105941529, WhatsApp us or email bhagyashricraneservices@gmail.com. Open 24×7 for crane & towing.',
+    'Contact Bhagyashri Crane Service in Bhatkal. Call 9731298734, WhatsApp us or email bhagyashricraneservices@gmail.com. Open 24×7 for crane & towing.',
   path: '/contact',
   image: '/images/crane-towing-fleet.jpeg',
 });
@@ -57,21 +55,12 @@ export default function ContactPage() {
                   <PhoneIcon className="h-6 w-6" />
                 </span>
                 <h2 className="mt-4 text-lg font-bold text-white">Call Us</h2>
-                <div className="mt-3 space-y-3">
+                <div className="mt-3">
                   <div className="flex items-center justify-between gap-3">
                     <a href={telHref} className="text-lg font-semibold text-brand-mist hover:text-brand-yellow">
                       {phonePrimaryDisplay}
                     </a>
                     <CopyPhone value={`+91${business.phonePrimary}`} display={phonePrimaryDisplay} />
-                  </div>
-                  <div className="flex items-center justify-between gap-3">
-                    <a
-                      href={telHrefSecondary}
-                      className="text-lg font-semibold text-brand-mist hover:text-brand-yellow"
-                    >
-                      {phoneSecondaryDisplay}
-                    </a>
-                    <CopyPhone value={`+91${business.phoneSecondary}`} display={phoneSecondaryDisplay} />
                   </div>
                 </div>
                 <a href={telHref} className="btn-primary mt-5 w-full">

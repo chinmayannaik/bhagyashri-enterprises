@@ -5,11 +5,9 @@ import {
   navLinks,
   serviceAreas,
   telHref,
-  telHrefSecondary,
   whatsappHref,
   mapsDirectionsHref,
   phonePrimaryDisplay,
-  phoneSecondaryDisplay,
   business,
 } from '@/lib/site';
 
@@ -70,11 +68,6 @@ export function Footer() {
             <li>
               <a href={telHref} className="flex items-center gap-2.5 text-brand-mist hover:text-brand-yellow">
                 <PhoneIcon className="h-4 w-4 text-brand-yellow" /> {phonePrimaryDisplay}
-              </a>
-            </li>
-            <li>
-              <a href={telHrefSecondary} className="flex items-center gap-2.5 text-brand-mist hover:text-brand-yellow">
-                <PhoneIcon className="h-4 w-4 text-brand-yellow" /> {phoneSecondaryDisplay}
               </a>
             </li>
             <li>

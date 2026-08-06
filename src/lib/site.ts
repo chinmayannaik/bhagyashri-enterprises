@@ -10,9 +10,8 @@ export const business = {
   owner: 'Kumar Naik',
   tagline: '24×7 Crane & Towing Services in Bhatkal',
   subTagline: 'Fast Response • Licensed Operators • Affordable Pricing',
-  // Primary phone drives all Call-Now buttons (Kumar Naik, owner)
+  // Single business number — Kumar Naik (owner). Drives all Call & WhatsApp CTAs.
   phonePrimary: '9731298734',
-  phoneSecondary: '8105941529',
   email: 'bhagyashricraneservices@gmail.com',
   whatsapp: '919731298734', // international format, no + (Kumar's number)
   address: {
@@ -32,13 +31,11 @@ export const business = {
   yearsExperience: '10+',
 } as const;
 
-// Pretty-printed phone numbers
+// Pretty-printed phone number
 export const phonePrimaryDisplay = '+91 97312 98734';
-export const phoneSecondaryDisplay = '+91 81059 41529';
 
 // tel: / wa.me / maps helpers ----------------------------------------------
 export const telHref = `tel:+91${business.phonePrimary}`;
-export const telHrefSecondary = `tel:+91${business.phoneSecondary}`;
 
 export const whatsappMessage =
   'Hi Bhagyashri Crane Service, I need crane / towing assistance. Please share details.';
