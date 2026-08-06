@@ -4,6 +4,7 @@ import { CtaBanner } from '@/components/CtaBanner';
 import { Breadcrumbs } from '@/components/PageHero';
 import { BreadcrumbJsonLd } from '@/components/JsonLd';
 import { buildMetadata } from '@/lib/seo';
+import { getGalleryImages } from '@/lib/gallery';
 
 export const metadata = buildMetadata({
   title: 'Gallery - Crane & Towing Jobs in Bhatkal',
@@ -13,7 +14,9 @@ export const metadata = buildMetadata({
   image: '/images/crane-fishing-boat.jpeg',
 });
 
-export default function GalleryPage() {
+export default async function GalleryPage() {
+  const images = await getGalleryImages();
+
   return (
     <>
       <BreadcrumbJsonLd
@@ -36,7 +39,7 @@ export default function GalleryPage() {
           subtitle="Every photo here is from a real job on the Bhatkal coast - no stock images. Tap any picture to view it full-size."
         />
         <div className="mt-10">
-          <Gallery />
+          <Gallery images={images} />
         </div>
       </Section>
       <CtaBanner

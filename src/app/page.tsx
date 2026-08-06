@@ -9,7 +9,8 @@ import { QuoteForm } from '@/components/QuoteForm';
 import { BreadcrumbJsonLd } from '@/components/JsonLd';
 import { iconMap } from '@/components/Icons';
 import { PhoneIcon, WhatsAppIcon, ArrowIcon, ClockIcon, ShieldIcon, MedalIcon } from '@/components/Icons';
-import { homeServices, whyChooseUs, galleryImages } from '@/data/content';
+import { homeServices, whyChooseUs } from '@/data/content';
+import { getGalleryImages } from '@/lib/gallery';
 import {
   telHref,
   whatsappHref,
@@ -26,7 +27,9 @@ export const metadata = buildMetadata({
   path: '/',
 });
 
-export default function HomePage() {
+export default async function HomePage() {
+  const galleryImages = await getGalleryImages();
+
   return (
     <>
       <BreadcrumbJsonLd items={[{ name: 'Home', path: '/' }]} />
