@@ -22,7 +22,17 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Already carries a locale prefix — leave it alone.
+  // The default locale is served from bare URLs, so its prefixed form is a
+  // duplicate. Redirect /en/about -> /about permanently rather than serving
+  // the same page at two addresses.
+  if (pathname === `/${defaultLocale}` || pathname.startsWith(`/${defaultLocale}/`)) {
+    const stripped = pathname.slice(defaultLocale.length + 1) || '/';
+    const url = request.nextUrl.clone();
+    url.pathname = stripped;
+    return NextResponse.redirect(url, 308);
+  }
+
+  // A non-default locale prefix — serve as-is.
   const hasLocalePrefix = locales.some(
     (l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`),
   );

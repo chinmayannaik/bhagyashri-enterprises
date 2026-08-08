@@ -9,9 +9,12 @@ type Props = { params: { locale: Locale } };
 
 export function generateMetadata({ params }: Props) {
   const dict = getDictionary(params.locale);
+  const en = getDictionary('en');
   return buildMetadata({
     title: dict.privacy.metaTitle,
     description: dict.meta.privacy.description,
+    ogTitle: en.privacy.metaTitle,
+    ogDescription: en.meta.privacy.description,
     path: '/privacy-policy',
     locale: params.locale,
   });

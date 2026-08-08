@@ -8,10 +8,10 @@
 // middleware, sitemap, hreflang tags and language switcher all derive from it.
 // ---------------------------------------------------------------------------
 
-export const locales = ['kn', 'en'] as const;
+export const locales = ['en', 'kn'] as const;
 export type Locale = (typeof locales)[number];
 
-export const defaultLocale: Locale = 'kn';
+export const defaultLocale: Locale = 'en';
 
 export const localeNames: Record<Locale, string> = {
   kn: 'ಕನ್ನಡ',

@@ -23,9 +23,12 @@ type Props = { params: { locale: Locale } };
 
 export function generateMetadata({ params }: Props) {
   const dict = getDictionary(params.locale);
+  const en = getDictionary('en');
   return buildMetadata({
     title: dict.meta.home.title,
     description: dict.meta.home.description,
+    ogTitle: en.meta.home.title,
+    ogDescription: en.meta.home.description,
     path: '/',
     locale: params.locale,
   });

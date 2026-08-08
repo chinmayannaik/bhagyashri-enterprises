@@ -52,6 +52,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const locale: Locale = isLocale(params.locale) ? params.locale : defaultLocale;
   const dict = getDictionary(locale);
+  // Share cards are always English — links travel well beyond Kannada readers.
+  const en = getDictionary('en');
   return {
     metadataBase: new URL(SITE_URL),
     title: {
@@ -102,10 +104,10 @@ export async function generateMetadata({
     openGraph: {
       type: 'website',
       url: `${SITE_URL}${pathFor('/', locale)}`,
-      title: dict.meta.home.title,
-      description: dict.meta.home.description,
+      title: en.meta.home.title,
+      description: en.meta.home.description,
       siteName: business.name,
-      locale: localeOgLocale[locale],
+      locale: 'en_IN',
       images: [
         {
           url: `${SITE_URL}${OG_IMAGE}`,
@@ -119,8 +121,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      title: dict.meta.home.title,
-      description: dict.meta.home.description,
+      title: en.meta.home.title,
+      description: en.meta.home.description,
       images: [{ url: `${SITE_URL}${OG_IMAGE}`, alt: OG_IMAGE_ALT }],
     },
   };

@@ -39,6 +39,8 @@ export function buildMetadata({
   description,
   path,
   locale,
+  ogTitle,
+  ogDescription,
   image = OG_IMAGE,
   noIndex = false,
 }: {
@@ -46,10 +48,19 @@ export function buildMetadata({
   description: string;
   path: string;
   locale: Locale;
+  /**
+   * Share-card text. Always passed in English, including on Kannada pages —
+   * links get forwarded through WhatsApp far beyond the Kannada-reading
+   * audience, and the card artwork itself is English.
+   */
+  ogTitle?: string;
+  ogDescription?: string;
   image?: string;
   noIndex?: boolean;
 }): Metadata {
   const url = `${SITE_URL}${pathFor(path, locale)}`;
+  const shareTitle = ogTitle ?? title;
+  const shareDescription = ogDescription ?? description;
 
   const languages: Record<string, string> = {};
   for (const l of locales) {
@@ -83,10 +94,11 @@ export function buildMetadata({
     openGraph: {
       type: 'website',
       url,
-      title,
-      description,
+      title: shareTitle,
+      description: shareDescription,
       siteName: business.name,
-      locale: localeOgLocale[locale],
+      // The card text is English, so declare en_IN regardless of page language.
+      locale: 'en_IN',
       alternateLocale: locales.filter((l) => l !== locale).map((l) => localeOgLocale[l]),
       images: [
         {
@@ -101,8 +113,8 @@ export function buildMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      title,
-      description,
+      title: shareTitle,
+      description: shareDescription,
       images: [{ url: imageUrl, alt: OG_IMAGE_ALT }],
     },
     other: {

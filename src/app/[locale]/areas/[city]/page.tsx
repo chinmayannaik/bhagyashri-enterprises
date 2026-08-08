@@ -35,9 +35,13 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: Props) {
   const loc = getLocation(params.locale, params.city);
   if (!loc) return {};
+  // Share cards stay English even on the Kannada page.
+  const enLoc = getLocation('en', params.city) ?? loc;
   return buildMetadata({
     title: loc.metaTitle,
     description: loc.metaDescription,
+    ogTitle: enLoc.metaTitle,
+    ogDescription: enLoc.metaDescription,
     path: `/areas/${params.city}`,
     locale: params.locale,
   });
