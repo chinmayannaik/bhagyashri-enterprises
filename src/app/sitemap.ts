@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { SITE_URL } from '@/lib/site';
 import { locales, defaultLocale, pathFor, localeHtmlLang } from '@/i18n/config';
+import { locationSlugs } from '@/i18n/locations';
 
 const routes = [
   { path: '/', priority: 1, changeFrequency: 'weekly' as const },
@@ -11,6 +12,12 @@ const routes = [
   { path: '/about', priority: 0.7, changeFrequency: 'monthly' as const },
   { path: '/gallery', priority: 0.6, changeFrequency: 'weekly' as const },
   { path: '/privacy-policy', priority: 0.3, changeFrequency: 'yearly' as const },
+  // Per-town landing pages — high priority, these target "crane in <town>".
+  ...locationSlugs.map((slug) => ({
+    path: `/areas/${slug}`,
+    priority: 0.9,
+    changeFrequency: 'monthly' as const,
+  })),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

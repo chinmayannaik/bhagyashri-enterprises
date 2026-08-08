@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { PageHero } from '@/components/PageHero';
 import { Section, SectionHeading } from '@/components/ui';
 import { Reveal } from '@/components/Reveal';
@@ -13,9 +14,11 @@ import {
   PhoneIcon,
   CheckIcon,
 } from '@/components/Icons';
+import { ArrowIcon } from '@/components/Icons';
 import { buildMetadata } from '@/lib/seo';
 import { telHref, phonePrimaryDisplay } from '@/lib/site';
-import { getDictionary, type Locale } from '@/i18n';
+import { getDictionary, pathFor, type Locale } from '@/i18n';
+import { getLocations, locationSlugs } from '@/i18n/locations';
 
 type Props = { params: { locale: Locale } };
 
@@ -33,6 +36,7 @@ export function generateMetadata({ params }: Props) {
 export default function AreasPage({ params }: Props) {
   const { locale } = params;
   const dict = getDictionary(locale);
+  const townCopy = getLocations(locale);
   const crumbs = [
     { name: dict.nav.home, path: '/' },
     { name: dict.nav.areas, path: '/areas-we-serve' },
@@ -58,6 +62,39 @@ export default function AreasPage({ params }: Props) {
         image="/images/towing-suv-ghat.jpeg"
         imageAlt={dict.galleryCaptions['towing-suv-ghat']}
       />
+
+      {/* Towns with their own landing page — the pages that rank for
+          "crane in <town>" searches, so they get top billing here. */}
+      <Section>
+        <SectionHeading
+          align="left"
+          eyebrow={dict.areas.tags.crane}
+          title={dict.locationPage.areasCovered}
+        />
+        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {locationSlugs.map((slug) => {
+            const loc = townCopy[slug];
+            if (!loc) return null;
+            return (
+              <Link
+                key={slug}
+                href={pathFor(`/areas/${slug}`, locale)}
+                className="card group flex items-center justify-between gap-3 p-5 transition-all hover:-translate-y-0.5 hover:border-brand-yellow/40"
+              >
+                <span>
+                  <span className="block text-base font-bold text-white group-hover:text-brand-yellow">
+                    {loc.name}
+                  </span>
+                  <span className="mt-0.5 block text-xs text-brand-fog">
+                    {loc.district} {dict.locationPage.inDistrict}
+                  </span>
+                </span>
+                <ArrowIcon className="h-5 w-5 flex-shrink-0 text-brand-yellow" />
+              </Link>
+            );
+          })}
+        </div>
+      </Section>
 
       <Section>
         <div className="space-y-6">

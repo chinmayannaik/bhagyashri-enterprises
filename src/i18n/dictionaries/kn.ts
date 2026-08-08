@@ -225,6 +225,20 @@ const kn: Dictionary = {
     ],
   },
 
+  locationPage: {
+    craneHeading: 'ಇಲ್ಲಿ ನಾವು ಮಾಡುವ ಕ್ರೇನ್ ಕೆಲಸ',
+    towingHeading: 'ಇಲ್ಲಿನ ಟೋಯಿಂಗ್ ಮತ್ತು ರಿಕವರಿ',
+    areasCovered: 'ನಾವು ಒಳಗೊಳ್ಳುವ ಪ್ರದೇಶಗಳು',
+    responseHeading: 'ಸ್ಪಂದನೆ ಸಮಯ',
+    faqHeading: 'ಸಾಮಾನ್ಯ ಪ್ರಶ್ನೆಗಳು',
+    ctaTitle: 'ಇಲ್ಲಿ ಕ್ರೇನ್ ಅಥವಾ ಟೋಯಿಂಗ್ ಬೇಕೇ?',
+    ctaSubtitle: 'ಒಂದೇ ಕರೆ ಮಾಡಿ, ನಾವು ಹೊರಡುತ್ತೇವೆ. 24×7 ಲಭ್ಯ.',
+    otherTownsHeading: 'ನಾವು ಸೇವೆ ಸಲ್ಲಿಸುವ ಇತರ ಊರುಗಳು',
+    viewTown: 'ವಿವರ ನೋಡಿ',
+    allAreasLink: 'ಎಲ್ಲಾ ಸೇವಾ ಪ್ರದೇಶಗಳು',
+    inDistrict: 'ಜಿಲ್ಲೆ',
+  },
+
   contact: {
     metaTitle: 'ಸಂಪರ್ಕ - ಭಾಗ್ಯಶ್ರೀ ಕ್ರೇನ್ಸ್ ಮತ್ತು ಟೋಯಿಂಗ್, ಭಟ್ಕಳ',
     heroTitle: 'ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ - 24×7 ಲಭ್ಯ',

@@ -217,6 +217,20 @@ const en = {
     ],
   },
 
+  locationPage: {
+    craneHeading: 'Crane work we do here',
+    towingHeading: 'Towing & recovery here',
+    areasCovered: 'Areas we cover',
+    responseHeading: 'Response time',
+    faqHeading: 'Common questions',
+    ctaTitle: 'Need a crane or a tow here?',
+    ctaSubtitle: 'One call and we are on the way. We answer 24×7.',
+    otherTownsHeading: 'We also serve',
+    viewTown: 'View details',
+    allAreasLink: 'All service areas',
+    inDistrict: 'district',
+  },
+
   contact: {
     metaTitle: 'Contact - Call Bhagyashri Cranes & Towing, Bhatkal',
     heroTitle: 'Get in Touch - We Answer 24×7',

@@ -2,7 +2,9 @@
 // Central business configuration. Edit values here to update the whole site.
 // ---------------------------------------------------------------------------
 
-export const SITE_URL = 'https://bhagyashri-enterprises.vercel.app';
+// Live domain. Drives canonical URLs, hreflang, OpenGraph, sitemap and JSON-LD,
+// so it must match the primary domain configured in Vercel (apex, non-www).
+export const SITE_URL = 'https://bhagyashrienterprise.in';
 
 export const business = {
   name: 'Bhagyashri Crane Service',
