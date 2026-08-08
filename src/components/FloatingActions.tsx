@@ -3,33 +3,36 @@
 import { motion } from 'framer-motion';
 import { PhoneIcon, WhatsAppIcon, DirectionsIcon } from './Icons';
 import { telHref, whatsappHref, mapsDirectionsHref } from '@/lib/site';
+import type { Dictionary } from '@/i18n/dictionaries/en';
 
-const actions = [
-  {
-    href: telHref,
-    label: 'Call Now',
-    Icon: PhoneIcon,
-    className: 'bg-gradient-to-b from-brand-yellow to-brand-amber text-black',
-    ring: 'bg-brand-yellow',
-    pulse: true,
-  },
-  {
-    href: whatsappHref,
-    label: 'WhatsApp',
-    Icon: WhatsAppIcon,
-    className: 'bg-[#25D366] text-black',
-    ring: 'bg-[#25D366]',
-  },
-  {
-    href: mapsDirectionsHref,
-    label: 'Directions',
-    Icon: DirectionsIcon,
-    className: 'bg-white text-black',
-    ring: 'bg-white',
-  },
-];
+export function FloatingActions({ dict }: { dict: Dictionary }) {
+  const actions = [
+    {
+      href: telHref,
+      label: dict.common.callNow,
+      Icon: PhoneIcon,
+      className: 'bg-gradient-to-b from-brand-yellow to-brand-amber text-black',
+      ring: 'bg-brand-yellow',
+      pulse: true,
+    },
+    {
+      href: whatsappHref,
+      label: dict.common.whatsapp,
+      Icon: WhatsAppIcon,
+      className: 'bg-[#25D366] text-black',
+      ring: 'bg-[#25D366]',
+      pulse: false,
+    },
+    {
+      href: mapsDirectionsHref,
+      label: dict.common.directions,
+      Icon: DirectionsIcon,
+      className: 'bg-white text-black',
+      ring: 'bg-white',
+      pulse: false,
+    },
+  ];
 
-export function FloatingActions() {
   return (
     <div className="fixed bottom-24 right-4 z-40 flex flex-col items-end gap-3 sm:bottom-6">
       {actions.map(({ href, label, Icon, className, ring, pulse }, i) => (
@@ -49,7 +52,9 @@ export function FloatingActions() {
           <span className="pointer-events-none absolute right-14 whitespace-nowrap rounded-lg bg-black/85 px-3 py-1.5 text-sm font-semibold text-white opacity-0 shadow-lg transition-opacity duration-200 group-hover:opacity-100">
             {label}
           </span>
-          <span className={`relative grid h-[54px] w-[54px] place-items-center rounded-full shadow-lift ${className}`}>
+          <span
+            className={`relative grid h-[54px] w-[54px] place-items-center rounded-full shadow-lift ${className}`}
+          >
             {pulse && (
               <span className={`absolute inset-0 -z-10 rounded-full ${ring} animate-pulse-ring`} />
             )}

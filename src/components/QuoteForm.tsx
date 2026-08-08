@@ -1,24 +1,30 @@
 'use client';
 
 import { useState } from 'react';
-import { whatsappHref, telHref, phonePrimaryDisplay, business } from '@/lib/site';
+import { telHref, phonePrimaryDisplay, business } from '@/lib/site';
 import { WhatsAppIcon, PhoneIcon, CheckIcon } from './Icons';
+import type { Dictionary } from '@/i18n/dictionaries/en';
 
-const serviceOptions = [
-  'Crane Service',
-  'Heavy Lifting',
-  'Boat Lifting',
-  'Vehicle Towing',
-  'Breakdown / Accident Recovery',
-  'Other',
-];
-
-export function QuoteForm() {
+export function QuoteForm({ dict }: { dict: Dictionary }) {
+  const options = dict.quote.serviceOptions;
   const [sent, setSent] = useState(false);
-  const [form, setForm] = useState({ name: '', phone: '', service: serviceOptions[0], details: '' });
+  const [form, setForm] = useState({
+    name: '',
+    phone: '',
+    service: options[0],
+    location: '',
+    details: '',
+  });
 
   const buildMessage = () =>
-    `New enquiry for ${business.name}%0A%0AName: ${form.name}%0APhone: ${form.phone}%0AService: ${form.service}%0ADetails: ${form.details}`;
+    encodeURIComponent(
+      `${business.name}\n\n` +
+        `${dict.quote.name}: ${form.name}\n` +
+        `${dict.quote.phone}: ${form.phone}\n` +
+        `${dict.quote.service}: ${form.service}\n` +
+        `${dict.quote.location}: ${form.location}\n` +
+        `${dict.quote.details}: ${form.details}`,
+    );
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,17 +42,14 @@ export function QuoteForm() {
         <span className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-brand-yellow text-black">
           <CheckIcon className="h-7 w-7" />
         </span>
-        <h3 className="h-display mt-4 text-2xl text-white">Request Ready!</h3>
-        <p className="mt-2 text-brand-fog">
-          We&apos;ve opened WhatsApp with your details. Just hit send, or call us directly for the
-          fastest response.
-        </p>
+        <h3 className="h-display mt-4 text-2xl text-white">{dict.quote.submit}</h3>
+        <p className="mt-2 text-brand-fog">{dict.quote.note}</p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-center">
           <a href={telHref} className="btn-primary">
-            <PhoneIcon className="h-5 w-5" /> Call {phonePrimaryDisplay}
+            <PhoneIcon className="h-5 w-5" /> {dict.common.call} {phonePrimaryDisplay}
           </a>
           <button type="button" onClick={() => setSent(false)} className="btn-ghost">
-            New Request
+            {dict.quote.service}
           </button>
         </div>
       </div>
@@ -58,20 +61,19 @@ export function QuoteForm() {
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="mb-1.5 block text-sm font-semibold text-brand-mist">
-            Your Name
+            {dict.quote.name}
           </label>
           <input
             id="name"
             required
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
-            placeholder="e.g. Ramesh"
             className={field}
           />
         </div>
         <div>
           <label htmlFor="phone" className="mb-1.5 block text-sm font-semibold text-brand-mist">
-            Phone Number
+            {dict.quote.phone}
           </label>
           <input
             id="phone"
@@ -80,53 +82,64 @@ export function QuoteForm() {
             inputMode="tel"
             value={form.phone}
             onChange={(e) => setForm({ ...form, phone: e.target.value })}
-            placeholder="10-digit mobile"
+            className={field}
+          />
+        </div>
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div>
+          <label htmlFor="service" className="mb-1.5 block text-sm font-semibold text-brand-mist">
+            {dict.quote.service}
+          </label>
+          <select
+            id="service"
+            value={form.service}
+            onChange={(e) => setForm({ ...form, service: e.target.value })}
+            className={field}
+          >
+            {options.map((s) => (
+              <option key={s} value={s} className="bg-brand-dark">
+                {s}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label htmlFor="location" className="mb-1.5 block text-sm font-semibold text-brand-mist">
+            {dict.quote.location}
+          </label>
+          <input
+            id="location"
+            value={form.location}
+            onChange={(e) => setForm({ ...form, location: e.target.value })}
             className={field}
           />
         </div>
       </div>
 
       <div>
-        <label htmlFor="service" className="mb-1.5 block text-sm font-semibold text-brand-mist">
-          Service Needed
-        </label>
-        <select
-          id="service"
-          value={form.service}
-          onChange={(e) => setForm({ ...form, service: e.target.value })}
-          className={field}
-        >
-          {serviceOptions.map((s) => (
-            <option key={s} value={s} className="bg-brand-dark">
-              {s}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div>
         <label htmlFor="details" className="mb-1.5 block text-sm font-semibold text-brand-mist">
-          Location & Details
+          {dict.quote.details}
         </label>
         <textarea
           id="details"
           rows={3}
           value={form.details}
           onChange={(e) => setForm({ ...form, details: e.target.value })}
-          placeholder="Where are you? What do you need lifted or towed?"
+          placeholder={dict.quote.detailsPlaceholder}
           className={field}
         />
       </div>
 
       <button type="submit" className="btn-wa w-full">
-        <WhatsAppIcon className="h-5 w-5" /> Get My Quote on WhatsApp
+        <WhatsAppIcon className="h-5 w-5" /> {dict.quote.submit}
       </button>
       <p className="text-center text-xs text-brand-fog">
-        Prefer to talk? Call{' '}
+        {dict.quote.note}{' '}
         <a href={telHref} className="font-semibold text-brand-yellow">
           {phonePrimaryDisplay}
-        </a>{' '}
-        - we answer 24×7.
+        </a>
       </p>
     </form>
   );

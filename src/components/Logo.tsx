@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { pathFor, defaultLocale, type Locale } from '@/i18n/config';
+import type { Dictionary } from '@/i18n/dictionaries/en';
 
 /**
  * Brand logo.
@@ -9,12 +11,20 @@ import Image from 'next/image';
  * small to read, so the mark is paired with live text styled to match it.
  * Use <LogoFull /> wherever there is room for the complete lockup.
  */
-export function Logo({ compact = false }: { compact?: boolean }) {
+export function Logo({
+  compact = false,
+  locale = defaultLocale,
+  dict,
+}: {
+  compact?: boolean;
+  locale?: Locale;
+  dict?: Dictionary;
+}) {
   return (
     <Link
-      href="/"
+      href={pathFor('/', locale)}
       className="group flex items-center gap-2.5"
-      aria-label="Bhagyashri Cranes & Towing - Home"
+      aria-label={`Bhagyashri Cranes & Towing - ${dict?.common.home ?? 'Home'}`}
     >
       <Image
         src="/images/logo-mark.png"

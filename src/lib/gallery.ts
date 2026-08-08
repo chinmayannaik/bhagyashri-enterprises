@@ -19,6 +19,7 @@
 // ---------------------------------------------------------------------------
 
 import { galleryImages as localFallback } from '@/data/content';
+import type { Dictionary } from '@/i18n/dictionaries/en';
 
 export type GalleryImage = {
   src: string;
@@ -69,9 +70,24 @@ function deliveryUrl(r: CloudinaryResource, width: number): string {
  * no redeploy. If Cloudinary is unconfigured or unreachable, the bundled photos
  * are still shown on their own.
  */
-export async function getGalleryImages(): Promise<GalleryImage[]> {
+export async function getGalleryImages(dict?: Dictionary): Promise<GalleryImage[]> {
   const cloudImages = await getCloudinaryImages();
-  return [...localFallback, ...cloudImages];
+  return [...localised(dict), ...cloudImages];
+}
+
+/**
+ * Bundled photos with captions swapped for the active language. The caption key
+ * is the image's file name, e.g. /images/crane-boat-lifting.jpeg ->
+ * `crane-boat-lifting`. Falls back to the English caption baked into the data.
+ */
+function localised(dict?: Dictionary): GalleryImage[] {
+  if (!dict) return localFallback;
+  const captions = dict.galleryCaptions as Record<string, string | undefined>;
+  return localFallback.map((img) => {
+    const key = img.src.split('/').pop()?.replace(/\.[a-z0-9]+$/i, '') ?? '';
+    const caption = captions[key] ?? img.caption;
+    return { ...img, caption, alt: `${caption} — ${img.alt}` };
+  });
 }
 
 /** Cloudinary-hosted photos only. Returns [] on any failure. */

@@ -1,4 +1,5 @@
 import { SITE_URL, business, serviceAreas, phonePrimaryDisplay } from '@/lib/site';
+import { pathFor, defaultLocale, type Locale } from '@/i18n/config';
 
 function JsonLdScript({ data }: { data: object }) {
   return (
@@ -11,7 +12,7 @@ function JsonLdScript({ data }: { data: object }) {
 }
 
 /** LocalBusiness + Organization - rendered once in the root layout. */
-export function OrganizationJsonLd() {
+export function OrganizationJsonLd({ locale = defaultLocale }: { locale?: Locale }) {
   const data = {
     '@context': 'https://schema.org',
     '@type': ['LocalBusiness', 'AutoWrecker', 'Organization'],
@@ -20,7 +21,7 @@ export function OrganizationJsonLd() {
     legalName: business.legalName,
     description:
       '24×7 crane service, heavy lifting, boat lifting and vehicle towing in Bhatkal, Karnataka. Licensed operators and quick emergency response across the Uttara Kannada coast.',
-    url: SITE_URL,
+    url: `${SITE_URL}${pathFor('/', locale)}`,
     telephone: `+91${business.phonePrimary}`,
     email: business.email,
     founder: { '@type': 'Person', name: business.owner },
@@ -88,8 +89,10 @@ export function OrganizationJsonLd() {
 
 export function BreadcrumbJsonLd({
   items,
+  locale = defaultLocale,
 }: {
   items: { name: string; path: string }[];
+  locale?: Locale;
 }) {
   const data = {
     '@context': 'https://schema.org',
@@ -98,7 +101,7 @@ export function BreadcrumbJsonLd({
       '@type': 'ListItem',
       position: i + 1,
       name: it.name,
-      item: `${SITE_URL}${it.path === '/' ? '' : it.path}`,
+      item: `${SITE_URL}${pathFor(it.path, locale)}`,
     })),
   };
   return <JsonLdScript data={data} />;
@@ -121,10 +124,12 @@ export function ServiceJsonLd({
   name,
   description,
   path,
+  locale = defaultLocale,
 }: {
   name: string;
   description: string;
   path: string;
+  locale?: Locale;
 }) {
   const data = {
     '@context': 'https://schema.org',
@@ -132,7 +137,7 @@ export function ServiceJsonLd({
     name,
     description,
     serviceType: name,
-    url: `${SITE_URL}${path}`,
+    url: `${SITE_URL}${pathFor(path, locale)}`,
     provider: { '@id': `${SITE_URL}/#business` },
     areaServed: serviceAreas.map((n) => ({ '@type': 'City', name: n })),
     telephone: `+91${business.phonePrimary}`,

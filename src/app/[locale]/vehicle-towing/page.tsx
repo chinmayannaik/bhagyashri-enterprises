@@ -6,74 +6,72 @@ import { CtaBanner } from '@/components/CtaBanner';
 import { Faq } from '@/components/Faq';
 import { BreadcrumbJsonLd, FaqJsonLd, ServiceJsonLd } from '@/components/JsonLd';
 import { iconMap, PhoneIcon, AlertIcon } from '@/components/Icons';
-import { towingServices, towingFaqs } from '@/data/content';
 import { buildMetadata } from '@/lib/seo';
 import { telHref, phonePrimaryDisplay } from '@/lib/site';
+import { getDictionary, type Locale } from '@/i18n';
 
-export const metadata = buildMetadata({
-  title: 'Vehicle Towing & Breakdown Recovery in Bhatkal | 24×7',
-  description:
-    '24×7 vehicle towing, car & SUV towing, breakdown assistance, accident recovery and roadside assistance in Bhatkal and NH-66. Fast emergency recovery. Call 9731298734.',
-  path: '/vehicle-towing',
-  image: '/images/towing-innova.jpeg',
-});
+type Props = { params: { locale: Locale } };
 
-const emergencySteps = [
-  { n: '1', t: 'Get to safety', d: 'Pull over, switch on hazard lights and stand away from traffic.' },
-  { n: '2', t: 'Call us', d: `Dial ${phonePrimaryDisplay}. Tell us your vehicle and exact location.` },
-  { n: '3', t: 'Share live location', d: 'Drop a WhatsApp live location so we reach you without delay.' },
-  { n: '4', t: 'We recover you', d: 'Our tow crew arrives, secures your vehicle and gets you moving.' },
-];
+export function generateMetadata({ params }: Props) {
+  const dict = getDictionary(params.locale);
+  return buildMetadata({
+    title: dict.towing.metaTitle,
+    description: dict.meta.towing.description,
+    path: '/vehicle-towing',
+    locale: params.locale,
+    image: '/images/towing-innova.jpeg',
+  });
+}
 
-export default function TowingPage() {
+export default function TowingPage({ params }: Props) {
+  const { locale } = params;
+  const dict = getDictionary(locale);
+  const crumbs = [
+    { name: dict.nav.home, path: '/' },
+    { name: dict.nav.towing, path: '/vehicle-towing' },
+  ];
+
   return (
     <>
-      <BreadcrumbJsonLd
-        items={[
-          { name: 'Home', path: '/' },
-          { name: 'Vehicle Towing', path: '/vehicle-towing' },
-        ]}
-      />
+      <BreadcrumbJsonLd items={crumbs} locale={locale} />
       <ServiceJsonLd
-        name="Vehicle Towing & Breakdown Recovery in Bhatkal"
-        description="24x7 car towing, SUV towing, pickup towing, breakdown assistance, accident recovery and roadside assistance in Bhatkal and along NH-66."
+        name={dict.towing.heroTitle}
+        description={dict.meta.towing.description}
         path="/vehicle-towing"
+        locale={locale}
       />
-      <FaqJsonLd items={towingFaqs} />
+      <FaqJsonLd items={dict.towingFaqs} />
 
       <PageHero
-        breadcrumbs={[
-          { name: 'Home', path: '/' },
-          { name: 'Vehicle Towing', path: '/vehicle-towing' },
-        ]}
-        title={<>24×7 Vehicle Towing &amp; Recovery</>}
-        subtitle="Broken down or stuck on NH-66? We tow cars, SUVs and pickups and handle breakdowns and accident recovery - any hour, any weather."
+        breadcrumbs={crumbs}
+        locale={locale}
+        dict={dict}
+        title={dict.towing.heroTitle}
+        subtitle={dict.towing.heroSubtitle}
         image="/images/towing-innova.jpeg"
-        imageAlt="Bhagyashri tow truck towing a Toyota Innova in Bhatkal"
+        imageAlt={dict.galleryCaptions['towing-innova']}
       />
 
-      {/* Emergency banner */}
       <section className="border-b border-white/10 bg-gradient-to-r from-brand-amber/15 to-transparent">
         <div className="container-px flex flex-col items-center justify-between gap-4 py-5 sm:flex-row">
           <p className="flex items-center gap-2.5 text-center text-sm font-semibold text-brand-mist sm:text-left">
             <AlertIcon className="h-5 w-5 flex-shrink-0 text-brand-yellow" />
-            Stranded right now? Don&apos;t wait - we answer 24×7.
+            {dict.towing.emergencyBanner}
           </p>
           <a href={telHref} className="btn-primary w-full sm:w-auto">
-            <PhoneIcon className="h-5 w-5" /> Call {phonePrimaryDisplay}
+            <PhoneIcon className="h-5 w-5" /> {dict.common.call} {phonePrimaryDisplay}
           </a>
         </div>
       </section>
 
-      {/* Services */}
       <Section>
         <SectionHeading
-          eyebrow="Towing & Recovery"
-          title="Every Kind of Recovery"
-          subtitle="From a simple flat-battery tow to full accident recovery, our fleet is ready for cars, SUVs and light commercial vehicles."
+          eyebrow={dict.towing.servicesEyebrow}
+          title={dict.towing.servicesTitle}
+          subtitle={dict.towing.servicesSubtitle}
         />
         <RevealStagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {towingServices.map((s) => {
+          {dict.towingServices.map((s) => {
             const Icon = iconMap[s.icon as keyof typeof iconMap];
             return (
               <StaggerItem key={s.title}>
@@ -90,21 +88,20 @@ export default function TowingPage() {
         </RevealStagger>
       </Section>
 
-      {/* How it works + image */}
       <section className="section bg-brand-steel/40">
         <div className="container-px grid items-center gap-10 lg:grid-cols-2">
           <div>
             <SectionHeading
               align="left"
-              eyebrow="In an Emergency"
-              title="What to Do When You Break Down"
-              subtitle="Stay calm and follow these four steps. We'll take it from there."
+              eyebrow={dict.towing.stepsEyebrow}
+              title={dict.towing.stepsTitle}
+              subtitle={dict.towing.stepsSubtitle}
             />
             <ol className="mt-8 space-y-4">
-              {emergencySteps.map((s) => (
-                <li key={s.n} className="flex gap-4">
+              {dict.towing.steps.map((s, i) => (
+                <li key={s.t} className="flex gap-4">
                   <span className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-full bg-gradient-to-b from-brand-yellow to-brand-amber font-display text-lg font-extrabold text-black">
-                    {s.n}
+                    {i + 1}
                   </span>
                   <div>
                     <p className="font-bold text-white">{s.t}</p>
@@ -118,7 +115,7 @@ export default function TowingPage() {
             <div className="relative overflow-hidden rounded-3xl border border-white/10 shadow-lift">
               <Image
                 src="/images/towing-suv-ghat.jpeg"
-                alt="SUV breakdown recovery on a ghat road near Bhatkal"
+                alt={dict.galleryCaptions['towing-suv-ghat']}
                 width={1600}
                 height={900}
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -129,20 +126,16 @@ export default function TowingPage() {
         </div>
       </section>
 
-      <CtaBanner
-        title="Need a Tow Right Now?"
-        subtitle="One call and our recovery crew is on the way - anywhere across Bhatkal and NH-66."
-      />
+      <CtaBanner dict={dict} title={dict.towing.ctaTitle} subtitle={dict.towing.ctaSubtitle} />
 
-      {/* FAQ */}
       <Section>
         <SectionHeading
-          eyebrow="Towing FAQs"
-          title="Common Towing Questions"
-          subtitle="Quick answers about our 24×7 towing and roadside assistance."
+          eyebrow={dict.towing.faqEyebrow}
+          title={dict.towing.faqTitle}
+          subtitle={dict.towing.faqSubtitle}
         />
         <div className="mt-10">
-          <Faq items={towingFaqs} />
+          <Faq items={dict.towingFaqs} />
         </div>
       </Section>
     </>

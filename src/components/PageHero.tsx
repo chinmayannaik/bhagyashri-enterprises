@@ -4,8 +4,18 @@ import type { ReactNode } from 'react';
 import { Reveal } from './Reveal';
 import { PhoneIcon, WhatsAppIcon } from './Icons';
 import { telHref, whatsappHref, phonePrimaryDisplay } from '@/lib/site';
+import { pathFor, defaultLocale, type Locale } from '@/i18n/config';
+import type { Dictionary } from '@/i18n/dictionaries/en';
 
-export function Breadcrumbs({ items }: { items: { name: string; path: string }[] }) {
+export type Crumb = { name: string; path: string };
+
+export function Breadcrumbs({
+  items,
+  locale = defaultLocale,
+}: {
+  items: Crumb[];
+  locale?: Locale;
+}) {
   return (
     <nav aria-label="Breadcrumb" className="mb-4 text-sm">
       <ol className="flex flex-wrap items-center gap-1.5 text-brand-fog">
@@ -13,7 +23,7 @@ export function Breadcrumbs({ items }: { items: { name: string; path: string }[]
           <li key={it.path} className="flex items-center gap-1.5">
             {i > 0 && <span className="text-brand-ash">/</span>}
             {i < items.length - 1 ? (
-              <Link href={it.path} className="hover:text-brand-yellow">
+              <Link href={pathFor(it.path, locale)} className="hover:text-brand-yellow">
                 {it.name}
               </Link>
             ) : (
@@ -32,6 +42,8 @@ export function PageHero({
   image,
   imageAlt,
   breadcrumbs,
+  locale = defaultLocale,
+  dict,
   cta = true,
   children,
 }: {
@@ -39,27 +51,22 @@ export function PageHero({
   subtitle: string;
   image: string;
   imageAlt: string;
-  breadcrumbs: { name: string; path: string }[];
+  breadcrumbs: Crumb[];
+  locale?: Locale;
+  dict: Dictionary;
   cta?: boolean;
   children?: ReactNode;
 }) {
   return (
     <section className="relative overflow-hidden border-b border-white/10">
       <div className="absolute inset-0">
-        <Image
-          src={image}
-          alt={imageAlt}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
+        <Image src={image} alt={imageAlt} fill priority sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/90 to-brand-dark/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-brand-dark to-transparent" />
       </div>
 
       <div className="container-px relative py-14 sm:py-20">
-        <Breadcrumbs items={breadcrumbs} />
+        <Breadcrumbs items={breadcrumbs} locale={locale} />
         <Reveal>
           <h1 className="h-display max-w-3xl text-4xl text-white sm:text-5xl">{title}</h1>
         </Reveal>
@@ -70,7 +77,7 @@ export function PageHero({
           <Reveal delay={0.16}>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <a href={telHref} className="btn-primary">
-                <PhoneIcon className="h-5 w-5" /> Call {phonePrimaryDisplay}
+                <PhoneIcon className="h-5 w-5" /> {dict.common.call} {phonePrimaryDisplay}
               </a>
               <a
                 href={whatsappHref}
@@ -78,7 +85,7 @@ export function PageHero({
                 rel="noopener noreferrer"
                 className="btn-wa"
               >
-                <WhatsAppIcon className="h-5 w-5" /> WhatsApp
+                <WhatsAppIcon className="h-5 w-5" /> {dict.common.whatsapp}
               </a>
             </div>
           </Reveal>

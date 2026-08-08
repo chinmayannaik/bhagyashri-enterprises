@@ -18,8 +18,21 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        display: ['var(--font-display)', 'system-ui', 'sans-serif'],
+        // Kannada face is listed after the Latin ones so Latin digits/brand
+        // names keep their shape while Kannada glyphs fall through to Noto.
+        sans: [
+          'var(--font-inter)',
+          'var(--font-kannada)',
+          'system-ui',
+          'sans-serif',
+        ],
+        display: [
+          'var(--font-display)',
+          'var(--font-kannada)',
+          'system-ui',
+          'sans-serif',
+        ],
+        kannada: ['var(--font-kannada)', 'var(--font-inter)', 'sans-serif'],
       },
       boxShadow: {
         card: '0 10px 30px -12px rgba(0,0,0,0.35)',

@@ -6,6 +6,7 @@ import { createPortal } from 'react-dom';
 import { motion } from 'framer-motion';
 import { CloseIcon, ChevronIcon } from './Icons';
 import { galleryImages } from '@/data/content';
+import type { Dictionary } from '@/i18n/dictionaries/en';
 
 type Img = {
   src: string;
@@ -15,7 +16,19 @@ type Img = {
   h: number;
 };
 
-export function Gallery({ images = galleryImages as Img[] }: { images?: Img[] }) {
+export function Gallery({
+  images = galleryImages as Img[],
+  labels,
+}: {
+  images?: Img[];
+  labels?: Dictionary['gallery'];
+}) {
+  const t = {
+    open: labels?.openImage ?? 'Open image',
+    prev: labels?.previousImage ?? 'Previous image',
+    next: labels?.nextImage ?? 'Next image',
+    close: 'Close',
+  };
   const [index, setIndex] = useState<number | null>(null);
   const [mounted, setMounted] = useState(false);
   const isOpen = index !== null;
@@ -75,7 +88,7 @@ export function Gallery({ images = galleryImages as Img[] }: { images?: Img[] })
             type="button"
             onClick={close}
             className="absolute right-4 top-4 z-10 grid h-11 w-11 place-items-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
-            aria-label="Close"
+            aria-label={t.close}
           >
             <CloseIcon className="h-6 w-6" />
           </button>
@@ -88,7 +101,7 @@ export function Gallery({ images = galleryImages as Img[] }: { images?: Img[] })
                 prev();
               }}
               className="absolute left-2 top-1/2 z-10 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 sm:left-6"
-              aria-label="Previous image"
+              aria-label={t.prev}
             >
               <ChevronIcon className="h-7 w-7 rotate-90" />
             </button>
@@ -127,7 +140,7 @@ export function Gallery({ images = galleryImages as Img[] }: { images?: Img[] })
                 next();
               }}
               className="absolute right-2 top-1/2 z-10 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 sm:right-6"
-              aria-label="Next image"
+              aria-label={t.next}
             >
               <ChevronIcon className="h-7 w-7 -rotate-90" />
             </button>
@@ -149,7 +162,7 @@ export function Gallery({ images = galleryImages as Img[] }: { images?: Img[] })
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.45, delay: (i % 3) * 0.06 }}
             className="group relative block w-full overflow-hidden rounded-2xl border border-white/10 bg-brand-steel"
-            aria-label={`Open image: ${img.caption}`}
+            aria-label={`${t.open}: ${img.caption}`}
           >
             <Image
               src={img.src}

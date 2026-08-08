@@ -7,39 +7,45 @@ import { Testimonials } from '@/components/Testimonials';
 import { MapEmbed } from '@/components/MapEmbed';
 import { QuoteForm } from '@/components/QuoteForm';
 import { BreadcrumbJsonLd } from '@/components/JsonLd';
-import { iconMap } from '@/components/Icons';
-import { PhoneIcon, WhatsAppIcon, ArrowIcon, ClockIcon, ShieldIcon, MedalIcon } from '@/components/Icons';
-import { homeServices, whyChooseUs } from '@/data/content';
-import { getGalleryImages } from '@/lib/gallery';
+import { iconMap, PhoneIcon, WhatsAppIcon, ArrowIcon, ClockIcon } from '@/components/Icons';
 import {
+  business,
+  serviceAreas,
   telHref,
   whatsappHref,
   phonePrimaryDisplay,
-  serviceAreas,
-  business,
 } from '@/lib/site';
 import { buildMetadata } from '@/lib/seo';
+import { getGalleryImages } from '@/lib/gallery';
+import { getDictionary, pathFor, type Locale } from '@/i18n';
 
-export const metadata = buildMetadata({
-  title: '24×7 Crane & Towing Service in Bhatkal | Bhagyashri Crane',
-  description:
-    'Need a crane near me in Bhatkal? Bhagyashri Crane Service offers 24×7 crane rental, heavy lifting, boat lifting & vehicle towing across Bhatkal, Murudeshwar, Honnavar, Kumta, Sirsi & Karwar. Call 9731298734.',
-  path: '/',
-});
+type Props = { params: { locale: Locale } };
 
-export default async function HomePage() {
-  const galleryImages = await getGalleryImages();
+export function generateMetadata({ params }: Props) {
+  const dict = getDictionary(params.locale);
+  return buildMetadata({
+    title: dict.meta.home.title,
+    description: dict.meta.home.description,
+    path: '/',
+    locale: params.locale,
+  });
+}
+
+export default async function HomePage({ params }: Props) {
+  const { locale } = params;
+  const dict = getDictionary(locale);
+  const galleryImages = await getGalleryImages(dict);
 
   return (
     <>
-      <BreadcrumbJsonLd items={[{ name: 'Home', path: '/' }]} />
+      <BreadcrumbJsonLd items={[{ name: dict.nav.home, path: '/' }]} locale={locale} />
 
       {/* HERO ---------------------------------------------------------------- */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/images/crane-fishing-boat.jpeg"
-            alt="Bhagyashri ACE crane lifting a fishing boat in Bhatkal, Karnataka"
+            alt={dict.galleryCaptions['crane-fishing-boat']}
             fill
             priority
             sizes="100vw"
@@ -52,30 +58,28 @@ export default async function HomePage() {
         <div className="container-px relative flex min-h-[86vh] flex-col justify-center py-20">
           <Reveal>
             <span className="eyebrow">
-              <ClockIcon className="h-3.5 w-3.5" /> Available 24 Hours · 7 Days
+              <ClockIcon className="h-3.5 w-3.5" /> {dict.common.availableNow}
             </span>
           </Reveal>
           <Reveal delay={0.06}>
             <h1 className="h-display mt-5 max-w-4xl text-[2.6rem] leading-[1.02] text-white sm:text-6xl lg:text-7xl">
-              24×7 Crane &amp; Towing Services in{' '}
-              <span className="text-brand-yellow">Bhatkal</span>
+              {dict.home.heroTitleA}
             </h1>
           </Reveal>
           <Reveal delay={0.12}>
             <p className="mt-5 max-w-xl text-lg font-medium text-brand-mist/90 sm:text-xl">
-              Fast Response • Licensed Operators • Affordable Pricing
+              {dict.home.heroSubtitle}
             </p>
           </Reveal>
           <Reveal delay={0.18}>
             <p className="mt-3 max-w-xl text-base leading-relaxed text-brand-fog">
-              Crane rental, heavy lifting, boat lifting and emergency vehicle recovery - one call and
-              our crew is on the way across the Uttara Kannada coast.
+              {dict.home.heroBody}
             </p>
           </Reveal>
           <Reveal delay={0.24}>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a href={telHref} className="btn-primary text-lg">
-                <PhoneIcon className="h-5 w-5" /> Call Now {phonePrimaryDisplay}
+                <PhoneIcon className="h-5 w-5" /> {dict.common.callNow} {phonePrimaryDisplay}
               </a>
               <a
                 href={whatsappHref}
@@ -83,7 +87,7 @@ export default async function HomePage() {
                 rel="noopener noreferrer"
                 className="btn-wa text-lg"
               >
-                <WhatsAppIcon className="h-5 w-5" /> WhatsApp Us
+                <WhatsAppIcon className="h-5 w-5" /> {dict.common.whatsappUs}
               </a>
             </div>
           </Reveal>
@@ -91,12 +95,15 @@ export default async function HomePage() {
           <Reveal delay={0.32}>
             <dl className="mt-12 grid max-w-2xl grid-cols-2 gap-4 sm:grid-cols-4">
               {[
-                { k: '24×7', v: 'Availability' },
-                { k: `${business.yearsExperience}`, v: 'Years Experience' },
-                { k: '6+', v: 'Towns Served' },
-                { k: '100%', v: 'Local Crew' },
+                { k: '24×7', v: dict.home.stats.availability },
+                { k: business.yearsExperience, v: dict.home.stats.experience },
+                { k: '6+', v: dict.home.stats.towns },
+                { k: '100%', v: dict.home.stats.localCrew },
               ].map((s) => (
-                <div key={s.v} className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur">
+                <div
+                  key={s.v}
+                  className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur"
+                >
                   <dt className="font-display text-2xl font-extrabold text-brand-yellow sm:text-3xl">
                     {s.k}
                   </dt>
@@ -111,17 +118,17 @@ export default async function HomePage() {
       {/* SERVICES ------------------------------------------------------------ */}
       <Section id="services">
         <SectionHeading
-          eyebrow="What We Do"
-          title="Crane & Towing, Done Right"
-          subtitle="From lifting fishing boats and factory machinery to recovering stranded vehicles on NH-66 - we handle the heavy work so you don't have to."
+          eyebrow={dict.home.servicesEyebrow}
+          title={dict.home.servicesTitle}
+          subtitle={dict.home.servicesSubtitle}
         />
         <RevealStagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {homeServices.map((s) => {
+          {dict.homeServices.map((s) => {
             const Icon = iconMap[s.icon as keyof typeof iconMap];
             return (
               <StaggerItem key={s.title}>
                 <Link
-                  href={s.href}
+                  href={pathFor(s.href, locale)}
                   className="card group flex h-full flex-col p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-yellow/40 hover:shadow-lift"
                 >
                   <span className="grid h-12 w-12 place-items-center rounded-xl bg-brand-yellow/15 text-brand-yellow ring-1 ring-brand-yellow/25 transition-colors group-hover:bg-brand-yellow group-hover:text-black">
@@ -130,7 +137,8 @@ export default async function HomePage() {
                   <h3 className="mt-4 text-lg font-bold text-white">{s.title}</h3>
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-brand-fog">{s.body}</p>
                   <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-yellow">
-                    Learn more <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    {dict.common.learnMore}{' '}
+                    <ArrowIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>
                 </Link>
               </StaggerItem>
@@ -143,12 +151,12 @@ export default async function HomePage() {
       <section className="section bg-brand-steel/40">
         <div className="container-px">
           <SectionHeading
-            eyebrow="Why Choose Us"
-            title="The Crew Bhatkal Trusts"
-            subtitle="Locally run by Kumar Naik, backed by modern hydraulic cranes and a hard-working towing fleet."
+            eyebrow={dict.home.whyEyebrow}
+            title={dict.home.whyTitle}
+            subtitle={dict.home.whySubtitle}
           />
           <RevealStagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {whyChooseUs.map((w) => {
+            {dict.whyChooseUs.map((w) => {
               const Icon = iconMap[w.icon as keyof typeof iconMap];
               return (
                 <StaggerItem key={w.title}>
@@ -174,53 +182,53 @@ export default async function HomePage() {
           <div>
             <SectionHeading
               align="left"
-              eyebrow="Service Areas"
-              title="Covering the Uttara Kannada Coast"
-              subtitle="Based in Bhatkal, we respond fast across the coastal belt and inland ghats. Wherever you're stuck, we're not far."
+              eyebrow={dict.home.areasEyebrow}
+              title={dict.home.areasTitle}
+              subtitle={dict.home.areasSubtitle}
             />
             <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
               {serviceAreas.map((a) => (
                 <Reveal key={a}>
                   <Link
-                    href="/areas-we-serve"
+                    href={pathFor('/areas-we-serve', locale)}
                     className="flex items-center gap-2 rounded-xl border border-white/10 bg-brand-steel/70 px-4 py-3 text-sm font-semibold text-brand-mist transition-colors hover:border-brand-yellow/40 hover:text-brand-yellow"
                   >
-                    <span className="h-2 w-2 rounded-full bg-brand-yellow" />
-                    {a}
+                    <span className="h-2 w-2 flex-shrink-0 rounded-full bg-brand-yellow" />
+                    {dict.serviceAreaNames[a]}
                   </Link>
                 </Reveal>
               ))}
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href={telHref} className="btn-primary">
-                <PhoneIcon className="h-5 w-5" /> Call for Immediate Help
+                <PhoneIcon className="h-5 w-5" /> {dict.common.callForHelp}
               </a>
-              <Link href="/areas-we-serve" className="btn-ghost">
-                All Areas <ArrowIcon className="h-4 w-4" />
+              <Link href={pathFor('/areas-we-serve', locale)} className="btn-ghost">
+                {dict.common.allAreas} <ArrowIcon className="h-4 w-4" />
               </Link>
             </div>
           </div>
           <Reveal direction="left">
-            <MapEmbed />
+            <MapEmbed dict={dict} />
           </Reveal>
         </div>
       </Section>
 
       {/* CTA ----------------------------------------------------------------- */}
-      <CtaBanner />
+      <CtaBanner dict={dict} />
 
       {/* GALLERY PREVIEW ----------------------------------------------------- */}
       <Section className="bg-brand-steel/40">
         <SectionHeading
-          eyebrow="On The Job"
-          title="Real Work, Real Machines"
-          subtitle="Actual photos from our crane and towing jobs across Bhatkal and the coast."
+          eyebrow={dict.home.galleryEyebrow}
+          title={dict.home.galleryTitle}
+          subtitle={dict.home.gallerySubtitle}
         />
         <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
           {galleryImages.slice(0, 4).map((img, i) => (
             <Reveal key={img.src} delay={i * 0.05}>
               <Link
-                href="/gallery"
+                href={pathFor('/gallery', locale)}
                 className="group relative block aspect-[4/3] overflow-hidden rounded-2xl border border-white/10"
               >
                 <Image
@@ -237,8 +245,8 @@ export default async function HomePage() {
           ))}
         </div>
         <div className="mt-8 text-center">
-          <Link href="/gallery" className="btn-ghost">
-            View Full Gallery <ArrowIcon className="h-4 w-4" />
+          <Link href={pathFor('/gallery', locale)} className="btn-ghost">
+            {dict.common.viewFullGallery} <ArrowIcon className="h-4 w-4" />
           </Link>
         </div>
       </Section>
@@ -246,44 +254,26 @@ export default async function HomePage() {
       {/* TESTIMONIALS -------------------------------------------------------- */}
       <Section>
         <SectionHeading
-          eyebrow="Testimonials"
-          title="What Customers Say"
-          subtitle="A few words from people we've helped across the coast."
+          eyebrow={dict.home.testimonialsEyebrow}
+          title={dict.home.testimonialsTitle}
+          subtitle={dict.home.testimonialsSubtitle}
         />
-        <div className="mt-10">
-          <Testimonials />
+        <div className="mt-12">
+          <Testimonials dict={dict} />
         </div>
       </Section>
 
-      {/* QUOTE FORM ---------------------------------------------------------- */}
+      {/* QUOTE --------------------------------------------------------------- */}
       <section className="section bg-brand-steel/40">
-        <div className="container-px grid items-start gap-10 lg:grid-cols-2">
-          <div>
-            <SectionHeading
-              align="left"
-              eyebrow="Request a Quote"
-              title="Tell Us What You Need Lifted or Towed"
-              subtitle="Send your details and we'll get straight back to you on WhatsApp. For emergencies, always call - it's faster."
-            />
-            <ul className="mt-8 space-y-4">
-              {[
-                { Icon: ClockIcon, t: 'Answered 24×7', d: 'Day, night, monsoon - we pick up.' },
-                { Icon: MedalIcon, t: 'Licensed operators', d: '10+ years of coastal experience.' },
-                { Icon: ShieldIcon, t: 'Safe, insured handling', d: 'Your vehicle and cargo protected.' },
-              ].map(({ Icon, t, d }) => (
-                <li key={t} className="flex items-start gap-3">
-                  <span className="mt-0.5 grid h-9 w-9 flex-shrink-0 place-items-center rounded-lg bg-brand-yellow/15 text-brand-yellow">
-                    <Icon className="h-5 w-5" />
-                  </span>
-                  <div>
-                    <p className="font-semibold text-white">{t}</p>
-                    <p className="text-sm text-brand-fog">{d}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
+        <div className="container-px">
+          <SectionHeading
+            eyebrow={dict.home.quoteEyebrow}
+            title={dict.home.quoteTitle}
+            subtitle={dict.home.quoteSubtitle}
+          />
+          <div className="mx-auto mt-10 max-w-2xl">
+            <QuoteForm dict={dict} />
           </div>
-          <QuoteForm />
         </div>
       </section>
     </>

@@ -1,11 +1,14 @@
 import { PhoneIcon, WhatsAppIcon } from './Icons';
 import { Reveal } from './Reveal';
 import { telHref, whatsappHref, phonePrimaryDisplay } from '@/lib/site';
+import type { Dictionary } from '@/i18n/dictionaries/en';
 
 export function CtaBanner({
-  title = 'Need Immediate Crane or Towing?',
-  subtitle = 'We answer 24×7. One call and our crew is on the way across Bhatkal and nearby towns.',
+  dict,
+  title,
+  subtitle,
 }: {
+  dict: Dictionary;
   title?: string;
   subtitle?: string;
 }) {
@@ -18,16 +21,17 @@ export function CtaBanner({
             <div className="pointer-events-none absolute -bottom-16 -left-10 h-56 w-56 rounded-full bg-white/20 blur-2xl" />
             <div className="relative flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
               <div className="max-w-xl">
-                <h2 className="h-display text-2xl sm:text-3xl">{title}</h2>
-                <p className="mt-2 text-base font-medium text-black/80">{subtitle}</p>
+                <h2 className="h-display text-2xl sm:text-3xl">
+                  {title ?? dict.cta.defaultTitle}
+                </h2>
+                <p className="mt-2 text-base font-medium text-black/80">
+                  {subtitle ?? dict.cta.defaultSubtitle}
+                </p>
               </div>
               <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-                <a
-                  href={telHref}
-                  className="btn bg-black text-white shadow-lift hover:bg-black/90"
-                >
+                <a href={telHref} className="btn bg-black text-white shadow-lift hover:bg-black/90">
                   <PhoneIcon className="h-5 w-5" />
-                  Call {phonePrimaryDisplay}
+                  {dict.common.call} {phonePrimaryDisplay}
                 </a>
                 <a
                   href={whatsappHref}
@@ -36,7 +40,7 @@ export function CtaBanner({
                   className="btn border-2 border-black/80 bg-white/20 text-black hover:bg-white/40"
                 >
                   <WhatsAppIcon className="h-5 w-5" />
-                  WhatsApp Us
+                  {dict.common.whatsappUs}
                 </a>
               </div>
             </div>
