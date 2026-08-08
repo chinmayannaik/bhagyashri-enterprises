@@ -18,7 +18,6 @@ export function generateMetadata({ params }: Props) {
     description: dict.meta.crane.description,
     path: '/crane-services',
     locale: params.locale,
-    image: '/images/crane-boat-lifting.jpeg',
   });
 }
 

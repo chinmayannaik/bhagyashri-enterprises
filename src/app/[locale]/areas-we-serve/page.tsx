@@ -29,7 +29,6 @@ export function generateMetadata({ params }: Props) {
     description: dict.meta.areas.description,
     path: '/areas-we-serve',
     locale: params.locale,
-    image: '/images/towing-suv-ghat.jpeg',
   });
 }
 

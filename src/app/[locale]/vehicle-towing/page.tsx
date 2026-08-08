@@ -19,7 +19,6 @@ export function generateMetadata({ params }: Props) {
     description: dict.meta.towing.description,
     path: '/vehicle-towing',
     locale: params.locale,
-    image: '/images/towing-innova.jpeg',
   });
 }
 

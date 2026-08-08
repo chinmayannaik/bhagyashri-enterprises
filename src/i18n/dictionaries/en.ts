@@ -348,9 +348,9 @@ const en = {
 
   meta: {
     home: {
-      title: '24×7 Crane & Towing Service in Bhatkal | Bhagyashri Cranes & Towing',
+      title: 'Bhagyashri Cranes & Towing | 24×7 Crane & Vehicle Recovery Services',
       description:
-        'Need a crane near me in Bhatkal? Bhagyashri offers 24×7 crane rental, heavy lifting, boat lifting & vehicle towing across Bhatkal, Murudeshwar, Honnavar, Kumta, Sirsi & Karwar. Call 9731298734.',
+        '24×7 Crane Rental, Vehicle Towing, Heavy Lifting, Accident Recovery and Emergency Roadside Assistance across Bhatkal, Honnavar, Shirur, Byndoor, Kundapura and Udupi. Fast Response • Licensed Operators • Affordable Pricing.',
     },
     about: {
       description:

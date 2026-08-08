@@ -8,11 +8,15 @@ import { FloatingActions } from '@/components/FloatingActions';
 import { StickyCallBar } from '@/components/StickyCallBar';
 import { OrganizationJsonLd } from '@/components/JsonLd';
 import { SITE_URL, business } from '@/lib/site';
+import { OG_IMAGE, OG_IMAGE_WIDTH, OG_IMAGE_HEIGHT, OG_IMAGE_ALT } from '@/lib/seo';
 import {
   getDictionary,
   locales,
   isLocale,
   localeHtmlLang,
+  localeOgLocale,
+  pathFor,
+  defaultLocale,
   type Locale,
 } from '@/i18n';
 
@@ -46,7 +50,8 @@ export async function generateMetadata({
 }: {
   params: { locale: string };
 }): Promise<Metadata> {
-  const dict = getDictionary(params.locale);
+  const locale: Locale = isLocale(params.locale) ? params.locale : defaultLocale;
+  const dict = getDictionary(locale);
   return {
     metadataBase: new URL(SITE_URL),
     title: {
@@ -84,13 +89,45 @@ export async function generateMetadata({
     robots: {
       index: true,
       follow: true,
-      googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+        'max-video-preview': -1,
+      },
+    },
+    // Root-level share card. Individual pages override title/description/url
+    // via buildMetadata, but this guarantees any route has a valid preview.
+    openGraph: {
+      type: 'website',
+      url: `${SITE_URL}${pathFor('/', locale)}`,
+      title: dict.meta.home.title,
+      description: dict.meta.home.description,
+      siteName: business.name,
+      locale: localeOgLocale[locale],
+      images: [
+        {
+          url: `${SITE_URL}${OG_IMAGE}`,
+          secureUrl: `${SITE_URL}${OG_IMAGE}`,
+          width: OG_IMAGE_WIDTH,
+          height: OG_IMAGE_HEIGHT,
+          alt: OG_IMAGE_ALT,
+          type: 'image/jpeg',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: dict.meta.home.title,
+      description: dict.meta.home.description,
+      images: [{ url: `${SITE_URL}${OG_IMAGE}`, alt: OG_IMAGE_ALT }],
     },
   };
 }
 
 export const viewport: Viewport = {
-  themeColor: '#0B0B0D',
+  themeColor: '#FDBA12',
   width: 'device-width',
   initialScale: 1,
 };

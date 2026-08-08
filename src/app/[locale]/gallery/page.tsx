@@ -16,7 +16,6 @@ export function generateMetadata({ params }: Props) {
     description: dict.meta.gallery.description,
     path: '/gallery',
     locale: params.locale,
-    image: '/images/crane-fishing-boat.jpeg',
   });
 }
 

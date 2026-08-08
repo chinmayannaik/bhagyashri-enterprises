@@ -40,7 +40,6 @@ export function generateMetadata({ params }: Props) {
     description: loc.metaDescription,
     path: `/areas/${params.city}`,
     locale: params.locale,
-    image: '/images/crane-boat-lifting.jpeg',
   });
 }
 

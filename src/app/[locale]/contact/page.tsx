@@ -31,7 +31,6 @@ export function generateMetadata({ params }: Props) {
     description: dict.meta.contact.description,
     path: '/contact',
     locale: params.locale,
-    image: '/images/crane-towing-fleet.jpeg',
   });
 }
 
