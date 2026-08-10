@@ -11,6 +11,8 @@ const routes = [
   { path: '/contact', priority: 0.8, changeFrequency: 'monthly' as const },
   { path: '/about', priority: 0.7, changeFrequency: 'monthly' as const },
   { path: '/gallery', priority: 0.6, changeFrequency: 'weekly' as const },
+  { path: '/crane-near-me', priority: 0.8, changeFrequency: 'monthly' as const },
+  { path: '/towing-near-me', priority: 0.8, changeFrequency: 'monthly' as const },
   { path: '/privacy-policy', priority: 0.3, changeFrequency: 'yearly' as const },
   // Per-town landing pages — high priority, these target "crane in <town>".
   ...locationSlugs.map((slug) => ({

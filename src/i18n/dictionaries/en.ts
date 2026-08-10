@@ -15,6 +15,8 @@ const en = {
     gallery: 'Gallery',
     areas: 'Areas We Serve',
     contact: 'Contact',
+    craneNearMe: 'Crane Near Me',
+    towingNearMe: 'Towing Near Me',
     privacy: 'Privacy Policy',
   },
 
@@ -122,8 +124,8 @@ const en = {
   },
 
   crane: {
-    metaTitle: 'Crane Service & Crane Rental in Bhatkal | JCB Crane Hire',
-    heroTitle: 'Crane Service & Rental in Bhatkal',
+    metaTitle: 'Cranes & Towing Service in Bhatkal | Crane Hire & JCB Crane',
+    heroTitle: 'Cranes & Towing Service in Bhatkal',
     heroSubtitle:
       'Modern hydraulic cranes for boat lifting, heavy machinery, construction and industrial loads - booked by the hour or the project. 24×7 across the coast.',
     introEyebrow: 'Crane Rental Bhatkal',

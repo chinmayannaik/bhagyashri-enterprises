@@ -7,7 +7,7 @@
 export const SITE_URL = 'https://bhagyashrienterprise.in';
 
 export const business = {
-  name: 'Bhagyashri Crane Service',
+  name: 'Bhagyashri Cranes & Towing Service',
   legalName: 'Bhagyashri Crane & Towing Service',
   owner: 'Kumar Naik',
   tagline: '24×7 Crane & Towing Services in Bhatkal',

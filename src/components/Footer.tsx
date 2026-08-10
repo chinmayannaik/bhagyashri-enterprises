@@ -24,6 +24,8 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
     { path: '/gallery', label: dict.nav.gallery },
     { path: '/areas-we-serve', label: dict.nav.areas },
     { path: '/contact', label: dict.nav.contact },
+    { path: '/crane-near-me', label: dict.nav.craneNearMe },
+    { path: '/towing-near-me', label: dict.nav.towingNearMe },
     { path: '/privacy-policy', label: dict.nav.privacy },
   ];
 
