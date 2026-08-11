@@ -33,14 +33,14 @@ const locations: Record<string, LocationCopy> = {
     h1: 'Crane Service & Towing in Bhatkal',
     lead: 'We are based in Bhatkal — this is where we reach fastest, at any hour.',
     intro:
-      'Our yard is on NH-66 at Hebbale, so Bhatkal is home ground. Town lanes, the fishing harbour, the industrial sheds off the highway and the residential areas inland — our operators drive these roads every day and do not need directions to find you.',
+      'Our yard is on NH-66 in Bhatkal, so this is home ground. Town lanes, the fishing harbour, the industrial sheds off the highway and the residential areas inland — our operators drive these roads every day and do not need directions to find you.',
     crane:
       'Most of our Bhatkal crane work is coastal: lifting fishing boats and trawlers on and off lorries at the harbour, and moving them to and from repair yards. Alongside that we handle machinery shifting for local units, generator and transformer placement, and lifting materials on building sites around town. We work right through the monsoon, when boat handling is at its heaviest.',
     towing:
       'Breakdowns on the Bhatkal stretch of NH-66 are our most frequent towing call, day and night. We recover cars, SUVs and pickups, handle accident recovery carefully, and tow to whichever garage or showroom you prefer. Because we are local, there is no long wait for a crew to travel in from another town.',
     landmarks: [
       'Bhatkal fishing harbour & jetty',
-      'NH-66 through Hebbale and Jali',
+      'NH-66 through Bhatkal town and Jali',
       'Bhatkal town centre & market lanes',
       'Industrial sheds and workshops off the highway',
       'Bhatkal railway station road',
@@ -51,7 +51,7 @@ const locations: Record<string, LocationCopy> = {
     faqs: [
       {
         q: 'How fast can you reach me in Bhatkal?',
-        a: 'Our yard is in Bhatkal itself, on NH-66 at Hebbale, so for most locations in and around town we mobilise quickly. Call 9731298734 with your exact spot and we will tell you honestly how long we need.',
+        a: 'Our yard is in Bhatkal itself, right on NH-66, so for most locations in and around town we mobilise quickly. Call 9731298734 with your exact spot and we will tell you honestly how long we need.',
       },
       {
         q: 'Do you lift fishing boats at Bhatkal harbour?',

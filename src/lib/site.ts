@@ -16,17 +16,20 @@ export const business = {
   phonePrimary: '9731298734',
   email: 'bhagyashricraneservices@gmail.com',
   whatsapp: '919731298734', // international format, no + (Kumar's number)
+  // Kept identical to the Google Business Profile listing. Matching name,
+  // address and phone across the site and GBP ("NAP consistency") is a real
+  // local-ranking factor — don't make these more specific than the profile.
   address: {
-    line: 'NH-66, Hebbale',
+    line: '',
     locality: 'Bhatkal',
     region: 'Karnataka',
     postalCode: '581320',
     country: 'IN',
   },
   geo: {
-    // Near IndianOil pump, NH-66, Hebbale, Bhatkal (approx.)
-    lat: 13.9855,
-    lng: 74.5551,
+    // Exact pin from the Google Business listing.
+    lat: 13.9981372,
+    lng: 74.5462643,
   },
   hours: '24 Hours · 7 Days a Week',
   founded: '2014',
@@ -45,15 +48,19 @@ export const whatsappHref = `https://wa.me/${business.whatsapp}?text=${encodeURI
   whatsappMessage,
 )}`;
 
-// Real business location shared by the owner (Google Maps short link)
-export const mapsShortLink = 'https://maps.app.goo.gl/uNaZCk3pv4JsQyqy8';
+// The business's own Google Maps / Business Profile listing.
+export const mapsShortLink = 'https://maps.app.goo.gl/D4EnjkoPrwKnMjvA6';
 
-// "Get Directions" opens the exact pinned place; Directions is one tap away.
+/** Google's internal id for the listing — used in JSON-LD to tie the site to it. */
+export const googlePlaceCid = '0x3bbc43882f3a3705:0x1a056e6795ee77e9';
+
+// "Get Directions" opens the listing itself, so customers see the business
+// name, reviews and photos rather than a bare pin.
 export const mapsDirectionsHref = mapsShortLink;
 
-// Iframe-safe embed pinned to the business location via Google's place query.
+// Iframe-safe embed showing the business's own listing, not a nearby landmark.
 export const mapsEmbedSrc =
-  'https://www.google.com/maps?q=IndianOil,+NH+66,+Hebbale,+Bhatkal,+Karnataka+581320&z=15&output=embed';
+  'https://www.google.com/maps?q=bhagyashri+crane+%26+towing+services,+Bhatkal,+Karnataka+581320&z=16&output=embed';
 
 // Navigation ----------------------------------------------------------------
 export const navLinks = [

@@ -1,4 +1,10 @@
-import { SITE_URL, business, serviceAreas, phonePrimaryDisplay } from '@/lib/site';
+import {
+  SITE_URL,
+  business,
+  serviceAreas,
+  phonePrimaryDisplay,
+  mapsShortLink,
+} from '@/lib/site';
 import { pathFor, defaultLocale, type Locale } from '@/i18n/config';
 
 function JsonLdScript({ data }: { data: object }) {
@@ -30,7 +36,8 @@ export function OrganizationJsonLd({ locale = defaultLocale }: { locale?: Locale
     priceRange: '₹₹',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: business.address.line,
+      // Omitted rather than sent empty when the profile has no street line.
+      ...(business.address.line ? { streetAddress: business.address.line } : {}),
       addressLocality: business.address.locality,
       addressRegion: business.address.region,
       postalCode: business.address.postalCode,
@@ -54,7 +61,10 @@ export function OrganizationJsonLd({ locale = defaultLocale }: { locale?: Locale
       contactType: 'customer service',
       availableLanguage: ['en', 'kn', 'hi'],
     },
-    sameAs: [],
+    // Ties this site to the Google Business Profile listing, so Google can
+    // confidently treat them as the same business.
+    hasMap: mapsShortLink,
+    sameAs: [mapsShortLink],
     knowsAbout: [
       'Crane Service',
       'Crane Rental',

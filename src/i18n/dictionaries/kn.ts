@@ -253,7 +253,7 @@ const kn: Dictionary = {
     hoursTitle: 'ಕೆಲಸದ ಸಮಯ',
     hoursBody: 'ದಿನದ 24 ಗಂಟೆ, ವಾರದ ಏಳೂ ದಿನ - ಭಾನುವಾರ ಮತ್ತು ರಜಾ ದಿನಗಳೂ ಸೇರಿದಂತೆ.',
     locationTitle: 'ಸ್ಥಳ',
-    locationBody: 'ಹೆದ್ದಾರಿ-66, ಹೆಬ್ಬಳೆ, ಭಟ್ಕಳ, ಕರ್ನಾಟಕ 581320',
+    locationBody: 'ಭಟ್ಕಳ, ಕರ್ನಾಟಕ 581320',
     findUs: 'ನಮ್ಮನ್ನು ಹುಡುಕಿ',
   },
 

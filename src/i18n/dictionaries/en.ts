@@ -245,7 +245,7 @@ const en = {
     hoursTitle: 'Working Hours',
     hoursBody: 'Open 24 hours, all seven days - including Sundays and holidays.',
     locationTitle: 'Location',
-    locationBody: 'NH-66, Hebbale, Bhatkal, Karnataka 581320',
+    locationBody: 'Bhatkal, Karnataka 581320',
     findUs: 'Find Us',
   },
 
