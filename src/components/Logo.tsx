@@ -6,7 +6,7 @@ import type { Dictionary } from '@/i18n/dictionaries/en';
 /**
  * Brand logo.
  *
- * The official logo mark (yellow truck crane) sits beside the wordmark. At
+ * The official B-crane mark sits beside the wordmark. At
  * header size the baked-in wordmark of the full logo file would be far too
  * small to read, so the mark is paired with live text styled to match it.
  * Use <LogoFull /> wherever there is room for the complete lockup.
