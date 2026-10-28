@@ -30,10 +30,10 @@ export function Logo({
         src="/images/logo-mark.png"
         alt=""
         width={720}
-        height={566}
+        height={720}
         priority
         aria-hidden="true"
-        className="h-9 w-auto transition-transform duration-300 group-hover:scale-105"
+        className="h-9 w-9 shrink-0 object-contain transition-transform duration-300 group-hover:scale-105"
       />
       <span className="leading-tight">
         <span className="block font-display text-[15px] font-extrabold tracking-tight text-white">

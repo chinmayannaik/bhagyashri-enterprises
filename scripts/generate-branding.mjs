@@ -16,12 +16,45 @@ const meta = await sharp(source).metadata();
 const { width, height } = meta;
 console.log('Source dimensions:', width, 'x', height);
 
-// The circular B-crane mark is roughly 540px wide and 440px tall, centered near the top.
-// Extract that rectangle, then pad to a square so icon variants contain only the mark.
-const markWidth = 540;
-const markHeight = 440;
+// Icon-only crop: B in orange circle (exclude baked-in BHAGYASHRI wordmark below).
+const markWidth = 520;
+const markHeight = 360;
 const markLeft = Math.round((width - markWidth) / 2);
-const markTop = 0;
+const markTop = 18;
+
+/** B-crane mark only, white background knocked out for dark header. */
+async function squareMarkBuffer(targetSize) {
+  const rgb = await sharp(source)
+    .extract({ left: markLeft, top: markTop, width: markWidth, height: markHeight })
+    .ensureAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+
+  const mask = await sharp(source)
+    .extract({ left: markLeft, top: markTop, width: markWidth, height: markHeight })
+    .greyscale()
+    .threshold(250)
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+
+  const rgba = Buffer.alloc(rgb.data.length);
+  for (let i = 0, j = 0; i < rgb.data.length; i += 4, j += 1) {
+    rgba[i] = rgb.data[i];
+    rgba[i + 1] = rgb.data[i + 1];
+    rgba[i + 2] = rgb.data[i + 2];
+    rgba[i + 3] = 255 - mask.data[j];
+  }
+
+  return sharp(rgba, {
+    raw: { width: markWidth, height: markHeight, channels: 4 },
+  })
+    .resize(targetSize, targetSize, {
+      fit: 'contain',
+      background: { r: 0, g: 0, b: 0, alpha: 0 },
+    })
+    .png({ compressionLevel: 9 })
+    .toBuffer();
+}
 
 // 1. Full wordmark (navy/orange on white/transparent) — used as the default full logo.
 await sharp(source)
@@ -34,18 +67,14 @@ console.log('Created logo-full.png');
 fs.copyFileSync(path.join(imagesDir, 'logo-full.png'), path.join(imagesDir, 'logo-full-light.png'));
 console.log('Created logo-full-light.png');
 
-// 3. Header mark: square crop of the B-crane icon, resized to a header-friendly size.
-await sharp(source)
-  .extract({ left: markLeft, top: markTop, width: markSize, height: markSize })
-  .resize(720, 720, { fit: 'inside', withoutEnlargement: true })
+// 3. Header mark: isolated B-crane icon only.
+await sharp(await squareMarkBuffer(720))
   .png({ compressionLevel: 9 })
   .toFile(path.join(imagesDir, 'logo-mark.png'));
 console.log('Created logo-mark.png');
 
 // 4. PWA/JSON-LD 512x512 icon.
-await sharp(source)
-  .extract({ left: markLeft, top: markTop, width: markSize, height: markSize })
-  .resize(512, 512)
+await sharp(await squareMarkBuffer(512))
   .png({ compressionLevel: 9 })
   .toFile(path.join(imagesDir, 'logo-icon-512.png'));
 console.log('Created logo-icon-512.png');
@@ -78,17 +107,13 @@ await sharp(path.join(root, 'public', 'Open_Graph_metadata.png'))
 console.log('Created Open_Graph_metadata.jpg');
 
 // 7. App router icon.png (192x192).
-await sharp(source)
-  .extract({ left: markLeft, top: markTop, width: markSize, height: markSize })
-  .resize(192, 192)
+await sharp(await squareMarkBuffer(192))
   .png({ compressionLevel: 9 })
   .toFile(path.join(appDir, 'icon.png'));
 console.log('Created src/app/icon.png');
 
 // 8. Apple touch icon (180x180).
-await sharp(source)
-  .extract({ left: markLeft, top: markTop, width: markSize, height: markSize })
-  .resize(180, 180)
+await sharp(await squareMarkBuffer(180))
   .png({ compressionLevel: 9 })
   .toFile(path.join(appDir, 'apple-icon.png'));
 console.log('Created src/app/apple-icon.png');
@@ -100,8 +125,8 @@ const faviconBuffers = await Promise.all(
     sharp(path.join(appDir, 'icon.png'))
       .resize(size, size)
       .png({ compressionLevel: 9 })
-      .toBuffer()
-  )
+      .toBuffer(),
+  ),
 );
 const icoBuffer = icoEndec.encode(faviconBuffers);
 fs.writeFileSync(path.join(appDir, 'favicon.ico'), icoBuffer);

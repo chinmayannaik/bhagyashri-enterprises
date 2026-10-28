@@ -6,11 +6,11 @@ export default function Loading() {
       <Image
         src="/images/logo-mark.png"
         alt=""
-        width={560}
-        height={560}
+        width={720}
+        height={720}
         priority
         aria-hidden
-        className="h-24 w-auto animate-pulse sm:h-28"
+        className="h-24 w-24 object-contain animate-pulse sm:h-28 sm:w-28"
       />
       <div className="mt-10 w-full max-w-3xl animate-pulse space-y-6">
         <div className="h-5 w-2/3 rounded-lg bg-brand-steel mx-auto" />
