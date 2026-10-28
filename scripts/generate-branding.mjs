@@ -133,3 +133,18 @@ fs.writeFileSync(path.join(appDir, 'favicon.ico'), icoBuffer);
 console.log('Created src/app/favicon.ico');
 
 console.log('Branding assets regenerated from logo-source-user.png');
+
+const darkLockup = path.join(imagesDir, 'logo-dark-lockup.jpg');
+if (fs.existsSync(darkLockup)) {
+  await sharp(darkLockup)
+    .resize(320, 320, { fit: 'inside', background: { r: 0, g: 0, b: 0 } })
+    .png({ compressionLevel: 9 })
+    .toFile(path.join(imagesDir, 'logo-header-dark.png'));
+  console.log('Created logo-header-dark.png');
+
+  await sharp(darkLockup)
+    .resize(900, 900, { fit: 'inside', background: { r: 0, g: 0, b: 0 } })
+    .png({ compressionLevel: 9 })
+    .toFile(path.join(imagesDir, 'logo-dark-full.png'));
+  console.log('Created logo-dark-full.png');
+}

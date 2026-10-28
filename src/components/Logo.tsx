@@ -4,15 +4,10 @@ import { pathFor, defaultLocale, type Locale } from '@/i18n/config';
 import type { Dictionary } from '@/i18n/dictionaries/en';
 
 /**
- * Brand logo.
- *
- * The official B-crane mark sits beside the wordmark. At
- * header size the baked-in wordmark of the full logo file would be far too
- * small to read, so the mark is paired with live text styled to match it.
- * Use <LogoFull /> wherever there is room for the complete lockup.
+ * Header logo: full dark-theme lockup (icon + BHAGYASHRI + tagline on black).
+ * Pairs with the site’s dark chrome; light surfaces use LogoFull variant="light".
  */
 export function Logo({
-  compact = false,
   locale = defaultLocale,
   dict,
 }: {
@@ -23,33 +18,24 @@ export function Logo({
   return (
     <Link
       href={pathFor('/', locale)}
-      className="group flex items-center gap-2.5"
+      className="group inline-flex shrink-0 items-center"
       aria-label={`Bhagyashri Cranes & Towing - ${dict?.common.home ?? 'Home'}`}
     >
       <Image
-        src="/images/logo-mark.png"
-        alt=""
-        width={720}
-        height={720}
+        src="/images/logo-header-dark.png"
+        alt="Bhagyashri Crane and Towing Service"
+        width={320}
+        height={320}
         priority
-        aria-hidden="true"
-        className="h-9 w-9 shrink-0 object-contain transition-transform duration-300 group-hover:scale-105"
+        className="h-11 w-auto max-w-[min(52vw,220px)] object-contain object-left transition-transform duration-300 group-hover:scale-[1.02] sm:h-12"
       />
-      <span className="leading-tight">
-        <span className="block font-display text-[15px] font-extrabold tracking-tight text-white">
-          Bhagyashri
-        </span>
-        <span className="block text-[11px] font-semibold uppercase tracking-[0.18em] text-brand-yellow">
-          {compact ? 'Cranes' : 'Cranes & Towing'}
-        </span>
-      </span>
     </Link>
   );
 }
 
 /**
- * Complete logo lockup (mark + BHAGYASHRI + CRANES & TOWING).
- * `variant="light"` swaps the white sub-line to near-black for light surfaces.
+ * Complete logo lockup for footer and large placements.
+ * `variant="dark"` uses the black-background artwork; `light` uses the light-surface PNG.
  */
 export function LogoFull({
   className = 'h-28 w-auto',
@@ -60,12 +46,17 @@ export function LogoFull({
   variant?: 'dark' | 'light';
   priority?: boolean;
 }) {
+  const src =
+    variant === 'light'
+      ? '/images/logo-full-light.png'
+      : '/images/logo-dark-full.png';
+
   return (
     <Image
-      src={variant === 'light' ? '/images/logo-full-light.png' : '/images/logo-full.png'}
+      src={src}
       alt="Bhagyashri Cranes & Towing, Bhatkal"
       width={900}
-      height={783}
+      height={900}
       priority={priority}
       className={className}
     />
